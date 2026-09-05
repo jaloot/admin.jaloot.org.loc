@@ -3,47 +3,39 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Chapter;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class ChapterController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function index() : JsonResponse
     {
-        //
+        $chapters = Chapter::with([
+            'names',
+            'revelationPlace',
+            'prostrations',
+        ])->get();
+
+        return response()->json($chapters);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function show(Request $request, Chapter $chapter): JsonResponse
     {
-        //
-    }
+        $lang = $request->query('lang', 'ar');
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
+        $chapter->load([
+            'names',
+            'prostrations',
+        ]);
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
+        $chapter->name = $chapter->names?->ar;
+        $chapter->name_complex = $chapter->names?->complex;
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        unset(
+            $chapter->names,
+        );
+
+        return response()->json($chapter);
     }
 }

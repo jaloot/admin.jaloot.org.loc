@@ -16,9 +16,9 @@ class ProstrationsTable
     {
         return $table
             ->columns([
-                TextColumn::make('chapter.name')
+                TextColumn::make('chapter.names')
                     ->state(function($record){
-                        return  $record->chapter?->name?->ar;
+                        return  $record->chapter?->names?->ar;
                     })
                     ->searchable(),
                 TextColumn::make('verse.number')

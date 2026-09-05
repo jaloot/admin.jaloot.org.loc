@@ -19,11 +19,11 @@ class VersesTable
                     ->label('Chapter')
                     ->state(function ($record) {
                         return match ($record->language?->code) {
-                            'ar' => $record->chapter?->name?->ar,
-                            'en' => $record->chapter?->name?->en,
-                            'es' => $record->chapter?->name?->es,
-                            'fr' => $record->chapter?->name?->fr,
-                            default => $record->chapter?->name?->complex,
+                            'ar' => $record->chapter?->names?->ar,
+                            'en' => $record->chapter?->names?->en,
+                            'es' => $record->chapter?->names?->es,
+                            'fr' => $record->chapter?->names?->fr,
+                            default => $record->chapter?->names?->complex,
                         };
                     }),
                 TextColumn::make('text')

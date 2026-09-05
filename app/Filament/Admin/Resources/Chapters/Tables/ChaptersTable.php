@@ -19,9 +19,9 @@ class ChaptersTable
                 TextColumn::make('number')
                     ->numeric()
                     ->sortable(),
-                TextColumn::make('name')
+                TextColumn::make('names')
                     ->state(function ($record) {
-                        return $record->name?->ar;
+                        return $record->names?->ar;
                     })
                     ->label('Name')
                     ->searchable(),

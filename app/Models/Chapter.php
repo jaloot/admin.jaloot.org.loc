@@ -30,7 +30,7 @@ class Chapter extends Model
         return $this->belongsTo(RevelationPlace::class);
     }
 
-    public function name(): HasOne
+    public function names(): HasOne
     {
         return $this->hasOne(ChapterName::class);
     }

@@ -16,7 +16,7 @@ class VerseForm
                 Select::make('chapter_id')
                     ->relationship('chapter')
                     ->getOptionLabelFromRecordUsing(
-                        fn($record) => $record->name?->ar
+                        fn($record) => $record->names?->ar
                     )
                     ->required(),
                 TextInput::make('number')

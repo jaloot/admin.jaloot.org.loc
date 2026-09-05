@@ -15,7 +15,7 @@ class TafsirVerseForm
                 Select::make('chapter_id')
                     ->relationship('chapter', 'id')
                     ->getOptionLabelFromRecordUsing(function ($record) {
-                        return $record->name?->ar ?? $record->number;
+                        return $record->names?->ar ?? $record->number;
                     })
                     ->searchable()
                     ->required(),
