@@ -23,8 +23,7 @@ class ChaptersTable
                     ->state(function ($record) {
                         return $record->names?->ar;
                     })
-                    ->label('Name')
-                    ->searchable(),
+                    ->label('Name'),
                 TextColumn::make('revelation_order')
                     ->numeric()
                     ->sortable(),

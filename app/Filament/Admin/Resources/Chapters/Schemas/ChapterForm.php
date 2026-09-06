@@ -18,8 +18,6 @@ class ChapterForm
                     ->numeric(),
                 TextInput::make('slug')
                     ->required(),
-                Toggle::make('has_sajda')
-                    ->required(),
                 TextInput::make('revelation_order')
                     ->numeric(),
                 Toggle::make('has_basmala')

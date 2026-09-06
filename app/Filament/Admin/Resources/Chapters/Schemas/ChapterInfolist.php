@@ -25,7 +25,8 @@ class ChapterInfolist
                 TextEntry::make('revelationPlace.id')
                     ->label('Revelation place'),
                 IconEntry::make('has_sajda')
-                    ->boolean(),
+                    ->boolean()
+                    ->getStateUsing(fn ($record) => $record->prostrations()->exists()),
                 TextEntry::make('verses_count')
                     ->numeric(),
                 TextEntry::make('start_page')

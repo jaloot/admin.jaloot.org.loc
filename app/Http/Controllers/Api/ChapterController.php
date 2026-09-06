@@ -26,7 +26,6 @@ class ChapterController extends Controller
 
         $chapter->load([
             'names',
-            'prostrations',
         ]);
 
         $chapter->name = $chapter->names?->ar;
