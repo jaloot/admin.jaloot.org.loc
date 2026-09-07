@@ -3,38 +3,61 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\ChapterResource;
 use App\Models\Chapter;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class ChapterController extends Controller
 {
-    public function index() : JsonResponse
-    {
-        $chapters = Chapter::with([
-            'names',
-            'revelationPlace',
-            'prostrations',
-        ])->get();
+    private const ALLOWED_LANGS = ['ar', 'en', 'fr'];
+    private const DEFAULT_LANG = 'ar';
 
-        return response()->json($chapters);
+    public function index(Request $request): JsonResponse
+    {
+        $lang = $this->resolveLang($request);
+
+        $cacheKey = "chapters.lang.{$lang}";
+
+        $data = Cache::remember($cacheKey, now()->addDays(30), function () use ($request) {
+            $chapters = Chapter::with([
+                'names',
+                'revelationPlace.translations.language',
+                'prostrations',
+            ])
+                ->orderBy('number')
+                ->get();
+
+            return ChapterResource::collection($chapters)->resolve($request);
+        });
+
+        return response()->json($data);
     }
 
     public function show(Request $request, Chapter $chapter): JsonResponse
     {
-        $lang = $request->query('lang', 'ar');
+        $lang = $this->resolveLang($request);
 
-        $chapter->load([
-            'names',
-        ]);
+        $cacheKey = "chapter.{$chapter->id}.{$lang}";
 
-        $chapter->name = $chapter->names?->ar;
-        $chapter->name_complex = $chapter->names?->complex;
+        $data = Cache::remember($cacheKey, now()->addDays(30), function () use ($chapter, $request) {
+            $chapter->load([
+                'names',
+                'revelationPlace',
+                'prostrations',
+            ]);
 
-        unset(
-            $chapter->names,
-        );
+            return (new ChapterResource($chapter))->resolve($request);
+        });
 
-        return response()->json($chapter);
+        return response()->json($data);
+    }
+
+    private function resolveLang(Request $request): string
+    {
+        $lang = $request->query('lang', self::DEFAULT_LANG);
+
+        return in_array($lang, self::ALLOWED_LANGS, true) ? $lang : self::DEFAULT_LANG;
     }
 }
