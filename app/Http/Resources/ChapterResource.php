@@ -15,7 +15,7 @@ class ChapterResource extends JsonResource
         $lang = $this->resolveLang($request);
 
         return [
-            'id' => $this->id,
+            'id' => $this->number,
             'name' => $this->names?->{$lang} ?? $this->names?->{self::DEFAULT_LANG},
             'name_complex' => $this->names?->complex,
             'slug' => $this->slug,
@@ -37,7 +37,8 @@ class ChapterResource extends JsonResource
                 'included' => $this->has_basmala,
                 'is_verse' => $this->basmala_as_verse,
             ],
-            'prostrations' => ProstrationResource::collection($this->prostrations)->resolve($request),
+            // 'prostrations' => ProstrationResource::collection($this->prostrations)->resolve($request),
+            // 'verses' => VerseResource::collection($this->verses)->resolve($request),
         ];
     }
 
