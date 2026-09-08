@@ -4,6 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Models\Basmala;
 
 class ChapterResource extends JsonResource
 {
@@ -33,12 +34,19 @@ class ChapterResource extends JsonResource
                 'start' => $this->start_page,
                 'end' => $this->end_page,
             ],
-            'basmala' => [
-                'included' => $this->has_basmala,
-                'is_verse' => $this->basmala_as_verse,
-            ],
+            'basmala' => $this->getBasmala($lang),
             // 'prostrations' => ProstrationResource::collection($this->prostrations)->resolve($request),
             // 'verses' => VerseResource::collection($this->verses)->resolve($request),
+        ];
+    }
+
+    private function getBasmala(string $lang): array
+    {
+        $included = $this->has_basmala === true && $this->basmala_as_verse === false;
+        return [
+            'included' => $included, 
+            'is_verse' => $this->basmala_as_verse, 
+            'value' => $included ? Basmala::query()->whereHas('language', fn($query) => $query->where('code', $lang))->value('value') : null,
         ];
     }
 
