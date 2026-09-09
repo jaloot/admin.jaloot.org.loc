@@ -9,27 +9,28 @@ use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Spatie\Permission\Traits\HasRoles;
 
-#[Fillable(['name', 'email', 'password', 'role'])]
+#[Fillable(['name', 'email', 'password'])]
 #[Hidden(['password', 'remember_token'])]
 class User extends Authenticatable
 {
     /** @use HasFactory<UserFactory> */
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, HasRoles;
 
     public function isAdmin(): bool
     {
-        return $this->role === 'admin';
+        return $this->hasRole('admin');
     }
 
     public function isPublisher(): bool
     {
-        return $this->role === 'publisher';
+        return $this->hasRole('publisher');
     }
 
     public function canAccessPanel(Panel $panel): bool
     {
-        return $this->isAdmin() || $this->isPublisher();
+        return $this->hasAnyRole(['admin', 'publisher']);
     }
 
     protected function casts(): array
