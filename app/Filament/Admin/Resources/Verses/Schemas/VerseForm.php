@@ -25,6 +25,9 @@ class VerseForm
                 Textarea::make('text')
                     ->required()
                     ->columnSpanFull(),
+                Textarea::make('text_simple')
+                    ->required()
+                    ->columnSpanFull(),
                 TextInput::make('line')
                     ->numeric(),
                 TextInput::make('juz')

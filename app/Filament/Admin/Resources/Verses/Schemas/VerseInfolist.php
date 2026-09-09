@@ -26,6 +26,8 @@ class VerseInfolist
                     ->numeric(),
                 TextEntry::make('text')
                     ->columnSpanFull(),
+                TextEntry::make('text_simple')
+                    ->columnSpanFull(),
                 TextEntry::make('line')
                     ->numeric()
                     ->placeholder('-'),

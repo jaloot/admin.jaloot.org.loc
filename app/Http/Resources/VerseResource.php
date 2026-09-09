@@ -12,6 +12,10 @@ class VerseResource extends JsonResource
         return [
             "number" => $this->number,
             "text" => $this->text,
+            'text_simple' => $this->when(
+                $request->boolean('text_simple'),
+                $this->text_simple
+            ),
             "line" => $this->line,
             "juz" => $this->juz,
             "page" => $this->page,

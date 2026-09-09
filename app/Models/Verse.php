@@ -12,6 +12,7 @@ class Verse extends Model
         'chapter_id',
         'number',
         'text',
+        'text_simple',
         'line',
         'juz',
         'page',

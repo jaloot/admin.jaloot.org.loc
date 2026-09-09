@@ -36,7 +36,7 @@ class ChapterResource extends JsonResource
             ],
             'basmala' => $this->getBasmala($lang),
             // 'prostrations' => ProstrationResource::collection($this->prostrations)->resolve($request),
-            // 'verses' => VerseResource::collection($this->verses)->resolve($request),
+            'verses' => VerseResource::collection($this->verses)->resolve($request),
         ];
     }
 
