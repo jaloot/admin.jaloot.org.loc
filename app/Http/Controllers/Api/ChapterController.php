@@ -17,13 +17,11 @@ class ChapterController extends Controller
     public function index(Request $request): JsonResponse
     {
         $lang = $this->resolveLang($request);
-        $cacheKey = "chapter.quran.{$lang}";
+        $cacheKey = "chapters.quran.{$lang}";
         $fromCache = Cache::has($cacheKey);
         $cacheStart = microtime(true);
 
-        $cacheKey = "chapters.quran.{$lang}";
-
-        $data = Cache::remember($cacheKey, now()->addDays(365), function () use ($request) {
+        $data = Cache::rememberForever($cacheKey, function () use ($request) {
             $chapters = Chapter::with([
                 'names',
                 'revelationPlace.translations.language',
@@ -45,16 +43,21 @@ class ChapterController extends Controller
     public function show(Request $request, Chapter $chapter): JsonResponse
     {
         $lang = $this->resolveLang($request);
-        $cacheKey = "chapter.{$chapter->slug}.{$lang}";
+        $slug = $chapter->slug;
+        $textSimple = $request->boolean('text_simple');
+        $cacheKey = "chapter.{$slug}.{$lang}.S" . ($textSimple ? 'T' : 'F');
         $fromCache = Cache::has($cacheKey);
         $cacheStart = microtime(true);
 
-        $data = Cache::remember($cacheKey, now()->addDays(365), function () use ($chapter, $request) {
+        $data = Cache::rememberForever($cacheKey, function () use ($chapter, $request) {
             $chapter->load([
                 'names',
                 'revelationPlace',
                 'verses',
             ]);
+
+            $request->attributes->set('include_verses', true);
+            $request->attributes->set('show_text_basmala', true);
 
             return (new ChapterResource($chapter))->resolve($request);
         });
@@ -62,7 +65,7 @@ class ChapterController extends Controller
         $request->attributes->set('cache_key', $cacheKey);
         $request->attributes->set('cache_hit', $fromCache);
         $request->attributes->set('cache_time', round((microtime(true) - $cacheStart) * 1000, 2) . 'ms');
-        
+
 
         return response()->json($data);
     }

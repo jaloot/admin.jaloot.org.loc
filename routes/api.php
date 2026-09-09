@@ -11,6 +11,9 @@ Route::get('/user', function (Request $request) {
 
 Route::prefix('chapters')->group(function () {
     Route::get('/', [ChapterController::class, 'index']);
+});
+
+Route::prefix('chapter')->group(function () {
 
     Route::bind('chapter', function ($value) {
         if (! is_string($value) || ! preg_match('/^[a-zA-Z0-9\-]+$/', $value)) {

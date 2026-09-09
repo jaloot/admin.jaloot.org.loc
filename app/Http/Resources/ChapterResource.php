@@ -15,7 +15,7 @@ class ChapterResource extends JsonResource
     {
         $lang = $this->resolveLang($request);
 
-        return [
+        $data = [
             'id' => $this->number,
             'name' => $this->names?->{$lang} ?? $this->names?->{self::DEFAULT_LANG},
             'name_complex' => $this->names?->complex,
@@ -34,20 +34,41 @@ class ChapterResource extends JsonResource
                 'start' => $this->start_page,
                 'end' => $this->end_page,
             ],
-            'basmala' => $this->getBasmala($lang),
-            // 'prostrations' => ProstrationResource::collection($this->prostrations)->resolve($request),
-            'verses' => VerseResource::collection($this->verses)->resolve($request),
+            'basmala' => $this->getBasmala($request , $lang),
+            'prostrations' => ProstrationResource::collection($this->prostrations)->resolve($request),
         ];
+
+        if ($request->attributes->get('include_verses', false)) {
+            $data['verses'] = VerseResource::collection(
+                $this->verses
+            )->resolve($request);
+        }
+
+        return $data;
     }
 
-    private function getBasmala(string $lang): array
+    private function getBasmala(Request $request, string $lang): array
     {
-        $included = $this->has_basmala === true && $this->basmala_as_verse === false;
-        return [
-            'included' => $included, 
-            'is_verse' => $this->basmala_as_verse, 
-            'value' => $included ? Basmala::query()->whereHas('language', fn($query) => $query->where('code', $lang))->value('value') : null,
+        $included = $this->has_basmala === true
+            && $this->basmala_as_verse === false;
+
+        $data = [
+            'included' => $included,
+            'is_verse' => $this->basmala_as_verse,
         ];
+
+        if ($request->attributes->get('show_text_basmala', false)) {
+            $data['value'] = $included
+                ? Basmala::query()
+                ->whereHas(
+                    'language',
+                    fn($query) => $query->where('code', $lang)
+                )
+                ->value('value')
+                : null;
+        }
+
+        return $data;
     }
 
     private function resolveLang(Request $request): string
