@@ -15,6 +15,8 @@ class LanguageForm
                     ->required(),
                 TextInput::make('name')
                     ->required(),
+                TextInput::make('direction')
+                    ->required(),
             ]);
     }
 }

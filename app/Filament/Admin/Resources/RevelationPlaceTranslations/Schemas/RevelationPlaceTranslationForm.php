@@ -20,6 +20,9 @@ class RevelationPlaceTranslationForm
                     ->required(),
                 TextInput::make('name')
                     ->required(),
+                TextInput::make('place')
+                    ->required()
+                    ->label('Translated Place'),
             ]);
     }
 }

@@ -13,6 +13,10 @@ class AddResponseMeta
     {
         $response = $next($request);
 
+        if (! $response instanceof JsonResponse || $response->getStatusCode() >= 400) {
+            return $response;
+        }
+
         if ($response instanceof JsonResponse) {
             $data = $response->getData(true);
 
@@ -20,8 +24,9 @@ class AddResponseMeta
                 'status' => $response->getStatusCode(),
                 'response_time' => round((microtime(true) - LARAVEL_START) * 1000, 2) . 'ms',
                 'cache' => [
-                    'key' => $request->attributes->get('cache_key', null),
                     'hit' => $request->attributes->get('cache_hit', false),
+                    'key' => $request->attributes->get('cache_key', null),
+                    'store' => $request->attributes->get('cache_store'),
                     'time' => $request->attributes->get('cache_time'),
                 ],
             ];

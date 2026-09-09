@@ -14,19 +14,16 @@ class ChapterResource extends JsonResource
     public function toArray(Request $request): array
     {
         $lang = $this->resolveLang($request);
+        $translation = $this->revelationPlace?->translations->firstWhere('language.code', $lang);
 
         $data = [
             'id' => $this->number,
             'name' => $this->names?->{$lang} ?? $this->names?->{self::DEFAULT_LANG},
-            'name_complex' => $this->names?->complex,
+            'name_transliteration' => $this->names?->complex,
             'slug' => $this->slug,
             'revelation' => [
-                'place' => $this->revelationPlace->place,
-                'type' => $this->revelationPlace?->translations
-                    ->first(
-                        fn($translation) =>
-                        $translation->language?->code === $lang
-                    )?->name,
+                'place' => $translation?->place,
+                'type' => $translation?->name,
                 'order' => $this->revelation_order,
             ],
             'verses_count' => $this->verses_count,
@@ -34,7 +31,7 @@ class ChapterResource extends JsonResource
                 'start' => $this->start_page,
                 'end' => $this->end_page,
             ],
-            'basmala' => $this->getBasmala($request , $lang),
+            'basmala' => $this->getBasmala($request, $lang),
             'prostrations' => ProstrationResource::collection($this->prostrations)->resolve($request),
         ];
 

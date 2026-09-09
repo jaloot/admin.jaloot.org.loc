@@ -11,6 +11,7 @@ class RevelationPlaceTranslation extends Model
         'revelation_place_id',
         'language_id',
         'name',
+        'place',
     ];
 
     public function revelationPlace(): BelongsTo

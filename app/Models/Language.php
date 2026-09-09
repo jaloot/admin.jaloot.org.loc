@@ -10,6 +10,7 @@ class Language extends Model
     protected $fillable = [
         'code',
         'name',
+        'direction',
     ];
 
     public function revelationPlaceTranslations(): HasMany

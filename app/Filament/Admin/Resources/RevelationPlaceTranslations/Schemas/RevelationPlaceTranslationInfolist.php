@@ -16,6 +16,8 @@ class RevelationPlaceTranslationInfolist
                 TextEntry::make('language.name')
                     ->label('Language'),
                 TextEntry::make('name'),
+                TextEntry::make('place')
+                    ->label('Translated Place'),
                 TextEntry::make('created_at')
                     ->dateTime()
                     ->placeholder('-'),

@@ -16,6 +16,7 @@ Route::prefix('chapters')->group(function () {
 Route::prefix('chapter')->group(function () {
 
     Route::bind('chapter', function ($value) {
+
         if (! is_string($value) || ! preg_match('/^[a-zA-Z0-9\-]+$/', $value)) {
             abort(response()->json([
                 'status' => 422,
@@ -41,5 +42,5 @@ Route::prefix('chapter')->group(function () {
         return $chapter;
     });
 
-    Route::get('/{chapter}', [ChapterController::class, 'show']);
+    Route::get('/{chapter?}', [ChapterController::class, 'show']);
 });

@@ -13,6 +13,7 @@ class LanguageInfolist
             ->components([
                 TextEntry::make('code'),
                 TextEntry::make('name'),
+                TextEntry::make('direction'),
                 TextEntry::make('created_at')
                     ->dateTime()
                     ->placeholder('-'),

@@ -25,6 +25,9 @@ class RevelationPlaceTranslationsTable
                     ->searchable(),
                 TextColumn::make('name')
                     ->searchable(),
+                TextColumn::make('place')
+                    ->label('Translated Place')
+                    ->searchable(),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
