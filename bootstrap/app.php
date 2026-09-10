@@ -17,6 +17,11 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->api(append: [
             \App\Http\Middleware\AddResponseMeta::class,
         ]);
+
+        $middleware->alias([
+            'api.key' => \App\Http\Middleware\AuthenticateApiKey::class,
+            'api.log' => \App\Http\Middleware\LogApiRequest::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->shouldRenderJsonWhen(
