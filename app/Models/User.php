@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\{HasMany, HasOne};
 
 #[Fillable(['name', 'email', 'password'])]
 #[Hidden(['password', 'remember_token'])]
@@ -50,5 +50,10 @@ class User extends Authenticatable
     public function apiRequests(): HasMany
     {
         return $this->hasMany(ApiRequest::class);
+    }
+
+    public function latestApiKey(): HasOne
+    {
+        return $this->hasOne(ApiKey::class)->latestOfMany();
     }
 }

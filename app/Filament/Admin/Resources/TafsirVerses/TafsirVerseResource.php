@@ -46,6 +46,11 @@ class TafsirVerseResource extends Resource
         ];
     }
 
+    public static function canAccess(): bool
+    {
+        return auth()->user()?->hasRole('admin') ?? false;
+    }
+
     public static function getPages(): array
     {
         return [
@@ -54,25 +59,5 @@ class TafsirVerseResource extends Resource
             'view' => ViewTafsirVerse::route('/{record}'),
             'edit' => EditTafsirVerse::route('/{record}/edit'),
         ];
-    }
-
-    public static function canViewAny(): bool
-    {
-        return auth()->user()?->isAdmin() ?? false;
-    }
-
-    public static function canCreate(): bool
-    {
-        return auth()->user()?->isAdmin() ?? false;
-    }
-
-    public static function canEdit($record): bool
-    {
-        return auth()->user()?->isAdmin() ?? false;
-    }
-
-    public static function canDelete($record): bool
-    {
-        return auth()->user()?->isAdmin() ?? false;
     }
 }

@@ -24,6 +24,11 @@ class BasmalaResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'Basmala';
 
+    public static function canAccess(): bool
+    {
+        return auth()->user()?->hasRole('admin') ?? false;
+    }
+
     public static function form(Schema $schema): Schema
     {
         return BasmalaForm::configure($schema);
