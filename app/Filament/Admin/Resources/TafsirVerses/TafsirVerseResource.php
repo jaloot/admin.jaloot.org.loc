@@ -21,6 +21,7 @@ class TafsirVerseResource extends Resource
     protected static ?string $model = TafsirVerse::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|\UnitEnum|null $navigationGroup = 'Quran';
 
     protected static ?string $recordTitleAttribute = 'Tafsir Verse';
 

@@ -19,7 +19,7 @@ class Api extends Page
     protected static string|\UnitEnum|null $navigationGroup = 'Developer Tools';
 
     protected static ?string $navigationLabel = 'API';
-    protected static ?int $navigationSort = 1;
+    protected static ?int $navigationSort = 2;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedKey;
 

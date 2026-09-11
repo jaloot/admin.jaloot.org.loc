@@ -124,6 +124,6 @@ return [
     ],
 
     'doc_url' => env('API_DOC'),
-    'api_quran_jaloots' => env('API_QURAN_JALOOT'),
+    'api_quran_jaloot' => env('API_QURAN_JALOOT'),
 
 ];

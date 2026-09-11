@@ -19,6 +19,8 @@ use Filament\Tables\Table;
 class BasmalaResource extends Resource
 {
     protected static ?string $model = Basmala::class;
+    protected static string|\UnitEnum|null $navigationGroup = 'Quran';
+    protected static bool $isNavigationGroupCollapsed = true;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 

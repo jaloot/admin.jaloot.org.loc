@@ -11,7 +11,7 @@ Route::get('/user', function (Request $request) {
 
 
 
-Route::domain(config('app.api_quran_jaloots'))
+Route::domain(config('app.api_quran_jaloot'))
     ->middleware([
         'api.key',
         'api.log',

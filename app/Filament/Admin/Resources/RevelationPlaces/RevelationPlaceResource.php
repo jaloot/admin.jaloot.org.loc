@@ -21,6 +21,7 @@ class RevelationPlaceResource extends Resource
     protected static ?string $model = RevelationPlace::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|\UnitEnum|null $navigationGroup = 'Quran';
 
     protected static ?string $recordTitleAttribute = 'Revelation Place';
 

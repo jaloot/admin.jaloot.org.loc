@@ -23,7 +23,7 @@ class Analytics extends Page
     protected static string|\UnitEnum|null $navigationGroup = 'Developer Tools';
 
     protected static ?string $navigationLabel = 'Analytics';
-    protected static ?int $navigationSort = 2;
+    protected static ?int $navigationSort = 3;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedChartPie;
 
