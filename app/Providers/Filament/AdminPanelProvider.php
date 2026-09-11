@@ -28,7 +28,7 @@ class AdminPanelProvider extends PanelProvider
             ->path('')
             ->domain(env('FILAMENT_DOMAIN'))
             ->login()
-            ->registration()
+            ->registration(\App\Filament\Admin\Pages\Auth\Register::class)
             ->colors([
                 'primary' => '#06840b',
             ])

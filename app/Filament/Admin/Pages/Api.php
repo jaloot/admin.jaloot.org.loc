@@ -2,34 +2,35 @@
 
 namespace App\Filament\Admin\Pages;
 
-use App\Filament\Admin\Widgets\ApiUsageOverview;
-use App\Filament\Admin\Widgets\ApiUsageChart;
-use App\Filament\Admin\Widgets\RecentApiRequests;
-
 use Filament\Pages\Page;
 use Filament\Support\Icons\Heroicon;
 use BackedEnum;
 use App\Services\ApiKeyService;
 use Filament\Actions\Action;
 use Filament\Notifications\Notification;
+use App\Models\User;
 
-class MyApi extends Page
+class Api extends Page
 {
-    protected string $view = 'filament.admin.pages.my-api';
+    protected string $view = 'filament.admin.pages.api';
 
-    protected static ?string $title = 'My API';
+    protected static ?string $title = 'API Keys';
 
-    protected static ?string $navigationLabel = 'My API';
+    protected static string|\UnitEnum|null $navigationGroup = 'Developer Tools';
+
+    protected static ?string $navigationLabel = 'API';
+    protected static ?int $navigationSort = 1;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedKey;
 
     protected function getHeaderWidgets(): array
     {
-        return [
-            ApiUsageOverview::class,
-            ApiUsageChart::class,
-            RecentApiRequests::class,
-        ];
+        return [];
+    }
+
+    public function getSubheading(): ?string
+    {
+        return 'Manage your API credentials and monitor usage.';
     }
 
     protected function getHeaderActions(): array
@@ -41,30 +42,26 @@ class MyApi extends Page
                 ->color('danger')
                 ->requiresConfirmation()
                 ->modalHeading('Regenerate API credentials')
-                ->modalDescription(
-                    'Your current credentials will stop working immediately.'
-                )
+                ->modalDescription('Your current credentials will stop working immediately.')
                 ->action(function () {
 
-                    $user = auth()->user();
+                    $user = filament()->auth()->user();
+
+                    if (! $user instanceof User) {
+                        return;
+                    }
 
                     $user->apiKeys()->delete();
 
-                    $result = app(ApiKeyService::class)
-                        ->generate($user);
+                    $result = app(ApiKeyService::class)->generate($user);
 
                     Notification::make()
                         ->title('API credentials regenerated')
                         ->success()
-                        ->body(
-                            'Your new API secret is available now.'
-                        )
+                        ->body('Your new API secret is available now.')
                         ->send();
 
-                    session()->flash(
-                        'new_api_secret',
-                        $result['secret']
-                    );
+                    session()->flash('new_api_secret', $result['secret']);
                 }),
         ];
     }
