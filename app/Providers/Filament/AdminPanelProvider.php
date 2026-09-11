@@ -26,6 +26,7 @@ class AdminPanelProvider extends PanelProvider
         return $panel
             ->id('admin')
             ->path('')
+            ->viteTheme('resources/css/filament/admin/theme.css')
             ->domain(env('FILAMENT_DOMAIN'))
             ->login()
             ->registration(\App\Filament\Admin\Pages\Auth\Register::class)

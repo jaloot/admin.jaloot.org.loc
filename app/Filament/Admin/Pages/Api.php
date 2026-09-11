@@ -2,6 +2,8 @@
 
 namespace App\Filament\Admin\Pages;
 
+use App\Filament\Widgets\ApiCredentialsWidget;
+
 use Filament\Pages\Page;
 use Filament\Support\Icons\Heroicon;
 use BackedEnum;
@@ -14,7 +16,7 @@ class Api extends Page
 {
     protected string $view = 'filament.admin.pages.api';
 
-    protected static ?string $title = 'API Keys';
+    protected static ?string $title = 'API Details';
 
     protected static string|\UnitEnum|null $navigationGroup = 'Developer Tools';
 
@@ -25,12 +27,14 @@ class Api extends Page
 
     protected function getHeaderWidgets(): array
     {
-        return [];
+        return [
+            ApiCredentialsWidget::class,
+        ];
     }
 
     public function getSubheading(): ?string
     {
-        return 'Manage your API credentials and monitor usage.';
+        return 'Access the Jaloot API using your API key and follow the documentation to integrate Quran data into your application.';
     }
 
     protected function getHeaderActions(): array
@@ -54,6 +58,8 @@ class Api extends Page
                     $user->apiKeys()->delete();
 
                     $result = app(ApiKeyService::class)->generate($user);
+
+                    $this->dispatch('refresh-api-credentials');
 
                     Notification::make()
                         ->title('API credentials regenerated')

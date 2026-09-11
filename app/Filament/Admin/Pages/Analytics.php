@@ -18,7 +18,7 @@ class Analytics extends Page
 {
     protected string $view = 'filament.admin.pages.analytics';
 
-    protected static ?string $title = 'Analytics';
+    protected static ?string $title = 'API Analytics';
 
     protected static string|\UnitEnum|null $navigationGroup = 'Developer Tools';
 
