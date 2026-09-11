@@ -2,8 +2,6 @@
 
 namespace App\Filament\Admin\Pages;
 
-use App\Filament\Widgets\ApiCredentialsWidget;
-
 use Filament\Pages\Page;
 use Filament\Support\Icons\Heroicon;
 use BackedEnum;
@@ -28,7 +26,7 @@ class Api extends Page
     protected function getHeaderWidgets(): array
     {
         return [
-            ApiCredentialsWidget::class,
+            
         ];
     }
 
@@ -58,8 +56,6 @@ class Api extends Page
                     $user->apiKeys()->delete();
 
                     $result = app(ApiKeyService::class)->generate($user);
-
-                    $this->dispatch('refresh-api-credentials');
 
                     Notification::make()
                         ->title('API credentials regenerated')

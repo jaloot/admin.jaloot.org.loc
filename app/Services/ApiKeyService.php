@@ -19,8 +19,8 @@ class ApiKeyService
      */
     public function generate(User $user): array
     {
-        $apiKey = 'JALOOT-PUB-' . Str::random(30);
-        $secret = 'JALOOT-SEC-'.Str::random(55).'QJ';
+        $apiKey = 'JALOOT.PK-' . Str::random(30);
+        $secret = 'JALOOT-SK-'.Str::random(55).'QJ';
 
         $apiKeyModel = $user->apiKeys()->create([
             'api_key' => $apiKey,
