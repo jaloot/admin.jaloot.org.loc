@@ -28,7 +28,7 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('')
             ->viteTheme('resources/css/filament/admin/theme.css')
-            ->domain(env('FILAMENT_DOMAIN'))
+            ->domain(config('app.filament_domain'))
             ->login()
             ->registration(\App\Filament\Admin\Pages\Auth\Register::class)
             ->passwordReset()
