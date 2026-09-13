@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
+use Illuminate\Support\Str;
 
 class OldApiKeysSeeder extends Seeder
 {
@@ -66,10 +67,6 @@ class OldApiKeysSeeder extends Seeder
             $agent = trim($agent);
             $date = (int) trim($date);
 
-            $registeredAt = $date > 0
-                ? Carbon::createFromTimestamp($date)
-                : now();
-
             /*
              * Create old user if he doesn't already exist.
              */
@@ -79,7 +76,7 @@ class OldApiKeysSeeder extends Seeder
                 ],
                 [
                     'name' => $email,
-                    'password' => Hash::make('Jaloot@2026'),
+                    'password' => Hash::make('pwd!2019'),
                     'email_verified_at' => now(),
                 ]
             );
@@ -102,13 +99,13 @@ class OldApiKeysSeeder extends Seeder
                     'user_id' => $user->id,
                 ],
                 [
-                    'api_key' => 'JALOOT-PUB-' . $oldId,
-                    'api_secret_hash' => Hash::make($secretKey),
+                    'api_key' => 'JALOOT.PK-' . Str::random(30),
+                    'api_secret_hash' => 'JALOOT-SK-'.Str::random(55).'QJ',
                     'ip' => $ip,
                     'email' => $email,
                     'send_key' => $sendKey,
                     'agent' => $agent,
-                    'user_registered' => $registeredAt,
+                    'user_registered' => Carbon::createFromTimestamp($date),
                 ]
             );
 
