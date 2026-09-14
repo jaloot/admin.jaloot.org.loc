@@ -19,6 +19,10 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Filament\Auth\Pages\PasswordReset\RequestPasswordReset;
+use Filament\Enums\UserMenuPosition;
+use Filament\Actions\Action;
+use Filament\View\PanelsRenderHook;
+use Illuminate\Support\Facades\Blade;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -40,6 +44,19 @@ class AdminPanelProvider extends PanelProvider
             ->pages([
                 //Dashboard::class,
             ])
+            ->userMenuItems([
+                Action::make('profile')
+                    ->label('Edit Profile')
+                    ->url(fn(): string => \App\Filament\Admin\Pages\ApiDocumentation::getUrl())
+                    ->icon('heroicon-o-user'),
+            ])
+            ->renderHook(
+                PanelsRenderHook::SIDEBAR_FOOTER,
+                fn(): string => view(
+                    'filament.admin.sidebar.footer'
+                )->render()
+            )
+            ->globalSearch(false)
             ->discoverWidgets(in: app_path('Filament/Admin/Widgets'), for: 'App\Filament\Admin\Widgets')
             ->widgets([
                 // AccountWidget::class,
