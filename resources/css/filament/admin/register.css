@@ -1,0 +1,12 @@
+@media (min-width: 64rem) {
+    .fi-simple-main {
+        @apply m-0 p-[20px_30px];
+    }
+
+    .fi-simple-layout {
+        @apply bg-cover bg-center bg-no-repeat;
+
+        background-image:
+            url('/images/bg-quran.webp');
+    }
+}

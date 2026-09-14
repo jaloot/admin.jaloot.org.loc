@@ -81,13 +81,13 @@ class AdminPanelProvider extends PanelProvider
                 PanelsRenderHook::AUTH_REGISTER_FORM_BEFORE,
                 fn(): string => '<p class="mb-4 text-center text-sm text-gray-500 dark:text-gray-400">Create your free account and get access to the Jaloot.org Quran API.</p>',
             )
-             ->renderHook(
+            ->renderHook(
                 'panels::head.end',
                 fn(): string => request()->routeIs('filament.admin.auth.login')
                     ? '<meta name="description" content="Sign in to your Jaloot.org account to access the free Quran API, API credentials, documentation, and developer tools.">'
                     : '',
             )
-             ->renderHook(
+            ->renderHook(
                 PanelsRenderHook::AUTH_LOGIN_FORM_BEFORE,
                 fn(): string => '<p class="mb-4 text-center text-sm text-gray-500 dark:text-gray-400">Access the Jaloot.org Quran API.</p>',
             )

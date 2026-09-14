@@ -17,7 +17,7 @@
     </div>
 
     <div class="text-[11px]">
-        Free to use - &copy; {{date('Y')}} jaloot.org
+        Free to use - &copy; 2019 - {{date('Y')}} jaloot.org
     </div>
     <div class="text-[10px] mt-4 text-primary-600">Version : {{config('app.api_version')}}</div>
 </div>
