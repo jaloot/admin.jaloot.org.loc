@@ -33,6 +33,9 @@ class AdminPanelProvider extends PanelProvider
             ->path('')
             ->viteTheme('resources/css/filament/admin/theme.css')
             ->domain(config('app.filament_domain'))
+            ->brandLogo(asset('images/logo.svg'))
+            ->darkModeBrandLogo(asset('images/logo.svg'))
+            ->brandLogoHeight('2.5rem')
             ->login()
             ->registration(\App\Filament\Admin\Pages\Auth\Register::class)
             ->passwordReset()
@@ -47,7 +50,7 @@ class AdminPanelProvider extends PanelProvider
             ->userMenuItems([
                 Action::make('profile')
                     ->label('Edit Profile')
-                    ->url(fn(): string => \App\Filament\Admin\Pages\ApiDocumentation::getUrl())
+                    ->url(fn(): string => \App\Filament\Admin\Pages\EditProfile::getUrl())
                     ->icon('heroicon-o-user'),
             ])
             ->renderHook(
@@ -55,6 +58,24 @@ class AdminPanelProvider extends PanelProvider
                 fn(): string => view(
                     'filament.admin.sidebar.footer'
                 )->render()
+            )
+            ->renderHook(
+                PanelsRenderHook::AUTH_REGISTER_FORM_AFTER,
+                fn(): string => view('filament.admin.sidebar.footer')->render(),
+            )
+            ->renderHook(
+                PanelsRenderHook::AUTH_LOGIN_FORM_AFTER,
+                fn(): string => view('filament.admin.sidebar.footer')->render(),
+            )
+            ->renderHook(
+                'panels::head.end',
+                fn(): string => request()->routeIs('filament.admin.auth.register')
+                    ? '<meta name="description" content="Create your free account and get access to the Jaloot.org Quran API.">'
+                    : '',
+            )
+            ->renderHook(
+                PanelsRenderHook::AUTH_REGISTER_FORM_BEFORE,
+                fn(): string => '<p class="mb-4 text-center text-sm text-gray-500 dark:text-gray-400">Create your free account and get access to the Jaloot.org Quran API.</p>',
             )
             ->globalSearch(false)
             ->discoverWidgets(in: app_path('Filament/Admin/Widgets'), for: 'App\Filament\Admin\Widgets')
