@@ -36,7 +36,7 @@ class AdminPanelProvider extends PanelProvider
             ->brandLogo(asset('images/logo.svg'))
             ->darkModeBrandLogo(asset('images/logo.svg'))
             ->brandLogoHeight('2.5rem')
-            ->login()
+            ->login(\App\Filament\Admin\Pages\Auth\Login::class)
             ->registration(\App\Filament\Admin\Pages\Auth\Register::class)
             ->passwordReset()
             ->colors([
@@ -74,12 +74,22 @@ class AdminPanelProvider extends PanelProvider
             ->renderHook(
                 'panels::head.end',
                 fn(): string => request()->routeIs('filament.admin.auth.register')
-                    ? '<meta name="description" content="Create your free account and get access to the Jaloot.org Quran API.">'
+                    ? '<meta name="description" content="Create a free Jaloot.org account and get access to the Quran API, API credentials, documentation, and developer resources.">'
                     : '',
             )
             ->renderHook(
                 PanelsRenderHook::AUTH_REGISTER_FORM_BEFORE,
                 fn(): string => '<p class="mb-4 text-center text-sm text-gray-500 dark:text-gray-400">Create your free account and get access to the Jaloot.org Quran API.</p>',
+            )
+             ->renderHook(
+                'panels::head.end',
+                fn(): string => request()->routeIs('filament.admin.auth.login')
+                    ? '<meta name="description" content="Sign in to your Jaloot.org account to access the free Quran API, API credentials, documentation, and developer tools.">'
+                    : '',
+            )
+             ->renderHook(
+                PanelsRenderHook::AUTH_LOGIN_FORM_BEFORE,
+                fn(): string => '<p class="mb-4 text-center text-sm text-gray-500 dark:text-gray-400">Access the Jaloot.org Quran API.</p>',
             )
             ->globalSearch(false)
             ->discoverWidgets(in: app_path('Filament/Admin/Widgets'), for: 'App\Filament\Admin\Widgets')

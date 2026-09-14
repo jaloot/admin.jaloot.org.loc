@@ -10,12 +10,7 @@ class Register extends BaseRegister
 
     public function getTitle(): string
     {
-        return 'Sign Up for Quran API — Free - Jaloot.org Quran';
-    }
-
-    public function getHeading(): string
-    {
-        return 'Sign Up for Quran API — Free';
+        return 'Free Quran Data API';
     }
 
     protected function handleRegistration(array $data): User
