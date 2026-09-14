@@ -126,5 +126,6 @@ return [
     'doc_url' => env('API_DOC'),
     'api_quran_jaloot' => env('API_QURAN_JALOOT'),
     'filament_domain' => env('FILAMENT_DOMAIN'),
+    'api_version' => env('API_VERSION' , 'V2'),
 
 ];

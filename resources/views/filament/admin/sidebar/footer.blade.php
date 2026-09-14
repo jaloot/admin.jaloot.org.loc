@@ -1,7 +1,7 @@
 <div class="px-4 py-3 text-center text-xs text-gray-800 dark:text-gray-300">
 
     <div class="mb-4">
-        <svg class="inline-block " width="40" height="20" viewBox="0 0 6 3">
+        <svg class="inline-block" width="40" height="20" viewBox="0 0 6 3">
             <rect fill="#009639" width="6" height="3" />
             <rect fill="#FFF" width="6" height="2" />
             <rect width="6" height="1" />
@@ -16,7 +16,8 @@
         Created by <a href="https://www.elkharoua.com" target="_blank" class="text-primary-600 hover:text-primary-700">Hassan ELKHAROUA</a>
     </div>
 
-    <span class="text-[11px]">
+    <div class="text-[11px]">
         Free to use - &copy; {{date('Y')}} jaloot.org
-    </span>
+    </div>
+    <div class="text-[10px] mt-4 text-primary-600">Version : {{config('app.api_version')}}</div>
 </div>
