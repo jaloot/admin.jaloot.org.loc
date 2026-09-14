@@ -54,6 +54,10 @@ class AdminPanelProvider extends PanelProvider
                     ->icon('heroicon-o-user'),
             ])
             ->renderHook(
+                PanelsRenderHook::TOPBAR_LOGO_AFTER,
+                fn(): string => view('filament.admin.brand')->render()
+            )
+            ->renderHook(
                 PanelsRenderHook::SIDEBAR_FOOTER,
                 fn(): string => view(
                     'filament.admin.sidebar.footer'
