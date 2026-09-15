@@ -26,7 +26,7 @@ class EmailDelivery extends Model
 
     public function campaign(): BelongsTo
     {
-        return $this->belongsTo(EmailCampaign::class);
+        return $this->belongsTo(EmailCampaign::class,'email_campaign_id');
     }
 
     public function user(): BelongsTo
@@ -34,3 +34,4 @@ class EmailDelivery extends Model
         return $this->belongsTo(User::class);
     }
 }
+
