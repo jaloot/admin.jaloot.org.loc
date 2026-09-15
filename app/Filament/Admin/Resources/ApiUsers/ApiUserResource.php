@@ -34,7 +34,38 @@ class ApiUserResource extends Resource
 
     public static function canAccess(): bool
     {
-        return auth()->user()?->hasRole('admin') ?? false;
+        return self::is_allowed();
+    }
+
+    public static function canCreate(): bool
+    {
+        return self::is_allowed();
+    }
+
+    public static function canEdit($record): bool
+    {
+        return self::is_allowed();
+    }
+
+    public static function canDelete($record): bool
+    {
+        return self::is_allowed();
+    }
+
+    public static function canDeleteAny(): bool
+    {
+        return self::is_allowed();
+    }
+
+    private static function is_allowed()
+    {
+        $user = filament()->auth()->user();
+
+        if (! $user instanceof User) {
+            return false;
+        }
+
+        return $user->hasRole('admin');
     }
 
     public static function getEloquentQuery(): Builder

@@ -15,6 +15,7 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use App\Models\User;
 
 class TafsirVerseResource extends Resource
 {
@@ -47,11 +48,6 @@ class TafsirVerseResource extends Resource
         ];
     }
 
-    public static function canAccess(): bool
-    {
-        return auth()->user()?->hasRole('admin') ?? false;
-    }
-
     public static function getPages(): array
     {
         return [
@@ -60,5 +56,41 @@ class TafsirVerseResource extends Resource
             'view' => ViewTafsirVerse::route('/{record}'),
             'edit' => EditTafsirVerse::route('/{record}/edit'),
         ];
+    }
+
+    public static function canAccess(): bool
+    {
+        return self::is_allowed();
+    }
+
+    public static function canCreate(): bool
+    {
+        return self::is_allowed();
+    }
+
+    public static function canEdit($record): bool
+    {
+        return self::is_allowed();
+    }
+
+    public static function canDelete($record): bool
+    {
+        return self::is_allowed();
+    }
+
+    public static function canDeleteAny(): bool
+    {
+        return self::is_allowed();
+    }
+
+    private static function is_allowed()
+    {
+        $user = filament()->auth()->user();
+
+        if (! $user instanceof User) {
+            return false;
+        }
+
+        return $user->hasRole('admin');
     }
 }

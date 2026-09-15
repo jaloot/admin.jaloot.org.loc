@@ -48,6 +48,31 @@ class VerseResource extends Resource
 
     public static function canAccess(): bool
     {
+        return self::is_allowed();
+    }
+
+    public static function canCreate(): bool
+    {
+        return self::is_allowed();
+    }
+
+    public static function canEdit($record): bool
+    {
+        return self::is_allowed();
+    }
+
+    public static function canDelete($record): bool
+    {
+        return self::is_allowed();
+    }
+
+    public static function canDeleteAny(): bool
+    {
+        return self::is_allowed();
+    }
+
+    private static function is_allowed()
+    {
         $user = filament()->auth()->user();
 
         if (! $user instanceof User) {
