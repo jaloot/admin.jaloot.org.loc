@@ -62,32 +62,11 @@
 
                             <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:16px;">
                                 <tr>
-                                    <td align="center">
-
-                                        <svg width="40" height="20" viewBox="0 0 6 3" xmlns="http://www.w3.org/2000/svg"
-                                            style="display:block; margin:0 auto;">
-                                            <rect fill="#009639" width="6" height="3" />
-                                            <rect fill="#FFF" width="6" height="2" />
-                                            <rect width="6" height="1" />
-                                            <path fill="#ED2E38" d="M0,0l2,1.5L0,3Z" />
-                                        </svg>
-
-                                        <p style="margin:12px 0 0 0; font-size:13px;">
-                                            وندعو بالسلام والحرية لفلسطين
-                                        </p>
-
+                                    <td align="center"> <img src="{{ asset('images/palestine-flag.svg') }}" width="40" height="20" alt="Palestine" style="display:block; width:40px; height:20px; margin:0 auto; border:0;">
+                                        <p style="margin:12px 0 0 0; font-size:13px; color:#1f2937;">ندعو بالسلام والحرية لفلسطين</p>
                                     </td>
                                 </tr>
                             </table>
-
-                            <div style="font-weight:600; color:#1f2937; margin-bottom:4px;">
-                                تم تطويره من قِبل
-                                <a href="https://www.elkharoua.com"
-                                    target="_blank"
-                                    style="color:#4f46e5; text-decoration:none;">
-                                    حسن الخرواع
-                                </a>
-                            </div>
 
                             <div style="font-size:11px;">
                                 متاح للاستخدام مجانًا - &copy; 2019 - {{ date('Y') }} jaloot.org
