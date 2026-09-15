@@ -55,12 +55,17 @@ class SendCampaignEmail implements ShouldQueue
                 'sent_at' => now(),
                 'error' => null,
             ]);
+
+            $delivery->campaign->refreshStatistics();
+
         } catch (Throwable $exception) {
 
             $delivery->update([
                 'status' => 'failed',
                 'error' => $exception->getMessage(),
             ]);
+
+            $delivery->campaign->refreshStatistics();
 
             throw $exception;
         }
