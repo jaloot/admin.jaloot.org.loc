@@ -15,6 +15,7 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use App\Models\User;
 
 class VerseResource extends Resource
 {
@@ -42,14 +43,18 @@ class VerseResource extends Resource
 
     public static function getRelations(): array
     {
-        return [
-            //
-        ];
+        return [];
     }
 
     public static function canAccess(): bool
     {
-        return auth()->user()?->hasRole('admin') ?? false;
+        $user = filament()->auth()->user();
+
+        if (! $user instanceof User) {
+            return false;
+        }
+
+        return $user->hasRole('admin');
     }
 
     public static function getPages(): array
