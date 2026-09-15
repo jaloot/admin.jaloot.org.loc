@@ -32,17 +32,23 @@ class SendCampaignEmail implements ShouldQueue
             return;
         }
 
+        if (! $delivery->campaign) {
+            $delivery->update([
+                'status' => 'failed',
+                'error' => 'Email campaign not found.',
+            ]);
+
+            return;
+        }
+
         $delivery->update([
             'status' => 'sending',
             'attempts' => $delivery->attempts + 1,
         ]);
 
         try {
-
             Mail::to($delivery->email)
-                ->send(
-                    new CampaignMail($delivery->campaign)
-                );
+                ->send(new CampaignMail($delivery->campaign));
 
             $delivery->update([
                 'status' => 'sent',
