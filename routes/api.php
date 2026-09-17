@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\ChapterController;
+use App\Http\Controllers\Api\{ChapterController , VersesController};
 use App\Models\Chapter;
 
 Route::get('/user', function (Request $request) {
@@ -17,6 +17,11 @@ Route::domain(config('app.api_quran_jaloot'))
         'api.log',
     ])
     ->group(function () {
+
+        Route::prefix('verse')->group(function () {
+            Route::get('random', [VersesController::class, 'index']);
+        });
+
         Route::prefix('chapters')->group(function () {
             Route::get('/', [ChapterController::class, 'index']);
         });

@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $this->call([
-            OldApiKeysSeeder::class,
+            TafsirVerseSeeder::class,
         ]);
     }
 }

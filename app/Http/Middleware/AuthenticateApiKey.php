@@ -9,10 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class AuthenticateApiKey
 {
-    public function handle(
-        Request $request,
-        Closure $next
-    ): Response {
+    public function handle(Request $request,Closure $next): Response {
         $apiKey = $request->header('X-API-Key');
         $apiSecret = $request->header('X-API-Secret');
 

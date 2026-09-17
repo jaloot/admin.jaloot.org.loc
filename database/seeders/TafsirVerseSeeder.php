@@ -15,7 +15,7 @@ class TafsirVerseSeeder extends Seeder
     public function run(): void
     {
         $json = file_get_contents(
-            database_path('data/tafasser.json')
+            database_path('data/abdul-qader-mouheddine-sirhan-ali-sanchez.json')
         );
 
         $tafasser = json_decode(
@@ -47,6 +47,7 @@ class TafsirVerseSeeder extends Seeder
             $chapterNumber = (int) $tafsirVerse['sora'];
             $verseNumber   = (int) $tafsirVerse['aya'];
             $tafsirId      = (int) $tafsirVerse['id_tafasser'];
+            $lang      = (int) $tafsirVerse['lang'];
 
             // sora => Chapter.id
             $chapterId = $chapters[$chapterNumber] ?? null;
@@ -69,7 +70,7 @@ class TafsirVerseSeeder extends Seeder
             TafsirVerse::updateOrCreate(
                 [
                     'verse_id'    => $verseId,
-                    'language_id' => 1,
+                    'language_id' => $lang,
                     'tafsir_id'   => $tafsirId,
                 ],
                 [

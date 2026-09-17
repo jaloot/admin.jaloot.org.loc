@@ -8,7 +8,7 @@ use App\Models\EmailCampaign;
 use App\Models\EmailDelivery;
 use App\Models\User;
 use Filament\Actions\Action;
-use Filament\Actions\EditAction;
+use Filament\Actions\{EditAction, DeleteAction};
 use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
@@ -23,11 +23,6 @@ class EmailCampaignsTable
                     ->label('Campaign')
                     ->searchable()
                     ->sortable(),
-
-                TextColumn::make('subject')
-                    ->label('Subject')
-                    ->searchable()
-                    ->limit(50),
 
                 TextColumn::make('recipient_type')
                     ->label('Recipients')
@@ -55,24 +50,6 @@ class EmailCampaignsTable
                     ->numeric()
                     ->sortable(),
 
-                TextColumn::make('sent_count')
-                    ->label('Sent')
-                    ->numeric()
-                    ->badge()
-                    ->color('success'),
-
-                TextColumn::make('pending_count')
-                    ->label('Pending')
-                    ->numeric()
-                    ->badge()
-                    ->color('warning'),
-
-                TextColumn::make('failed_count')
-                    ->label('Failed')
-                    ->numeric()
-                    ->badge()
-                    ->color('danger'),
-
                 TextColumn::make('created_at')
                     ->label('Created')
                     ->dateTime()
@@ -80,14 +57,6 @@ class EmailCampaignsTable
             ])
 
             ->recordActions([
-                ViewAction::make(),
-
-                EditAction::make()
-                    ->visible(
-                        fn(EmailCampaign $record): bool =>
-                        $record->status === 'draft'
-                    ),
-
                 Action::make('deliveries')
                     ->label('Delivery History')
                     ->icon('heroicon-o-envelope')
@@ -128,7 +97,7 @@ class EmailCampaignsTable
                                     $query->where('name', 'publisher');
                                 })
                                 ->whereNotNull('email'),
-                            
+
 
                             'active_api_users' => User::query()
                                 ->where('is_active', true)
@@ -179,6 +148,19 @@ class EmailCampaignsTable
                                 }
                             });
                     }),
+
+                DeleteAction::make()
+                    ->label('Delete')
+                    ->icon('heroicon-o-trash')
+                    ->color('danger'),
+
+                ViewAction::make(),
+
+                EditAction::make()
+                    ->visible(
+                        fn(EmailCampaign $record): bool =>
+                        $record->status === 'draft'
+                    ),
             ]);
     }
 }
