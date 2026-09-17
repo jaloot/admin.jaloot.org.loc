@@ -1,122 +1,122 @@
 <x-filament-panels::page>
 
     @php
-        $chapters = [
-            'al-faatiha',
-            'al-baqara',
-            'aal-i-imraan',
-            'an-nisaa',
-            'al-maaida',
-            'al-anaam',
-            'al-araaf',
-            'al-anfaal',
-            'at-tawba',
-            'yunus',
-            'hud',
-            'yusuf',
-            'arraad',
-            'ibrahim',
-            'al-hijr',
-            'an-nahl',
-            'al-israa',
-            'al-kahf',
-            'maryam',
-            'taa-haa',
-            'al-anbiyaa',
-            'al-hajj',
-            'al-muminoon',
-            'an-noor',
-            'al-furqaan',
-            'ash-shuaraa',
-            'an-naml',
-            'al-qasas',
-            'al-ankaboot',
-            'ar-room',
-            'luqman',
-            'as-sajda',
-            'al-ahzaab',
-            'saba',
-            'faatir',
-            'yaseen',
-            'as-saaffaat',
-            'saad',
-            'az-zumar',
-            'ghafir',
-            'fussilat',
-            'ash-shura',
-            'az-zukhruf',
-            'ad-dukhaan',
-            'al-jaathiya',
-            'al-ahqaf',
-            'muhammad',
-            'al-fath',
-            'al-hujuraat',
-            'qaaf',
-            'adh-dhaariyat',
-            'at-tur',
-            'an-najm',
-            'al-qamar',
-            'ar-rahmaan',
-            'al-waaqia',
-            'al-hadid',
-            'al-mujaadila',
-            'al-hashr',
-            'al-mumtahana',
-            'as-saff',
-            'al-jumua',
-            'al-munaafiqoon',
-            'at-taghaabun',
-            'at-talaaq',
-            'at-tahrim',
-            'al-mulk',
-            'al-qalam',
-            'al-haaqqa',
-            'al-ma-aarij',
-            'nooh',
-            'al-jinn',
-            'al-muzzammil',
-            'al-muddaththir',
-            'al-qiyaama',
-            'al-insaan',
-            'al-mursalaat',
-            'an-naba',
-            'an-naaziaat',
-            'abasa',
-            'at-takwir',
-            'al-infitaar',
-            'al-mutaffifin',
-            'al-inshiqaaq',
-            'al-burooj',
-            'at-taariq',
-            'al-alaa',
-            'al-ghaashiya',
-            'al-fajr',
-            'al-balad',
-            'ash-shams',
-            'al-lail',
-            'ad-dhuhaa',
-            'ash-sharh',
-            'at-tin',
-            'al-alaq',
-            'al-qadr',
-            'al-bayyina',
-            'az-zalzala',
-            'al-aadiyaat',
-            'al-qaaria',
-            'at-takaathur',
-            'al-asr',
-            'al-humaza',
-            'al-fil',
-            'quraish',
-            'al-maaun',
-            'al-kawthar',
-            'al-kaafiroon',
-            'an-nasr',
-            'al-masad',
-            'al-ikhlaas',
-            'al-falaq',
-            'an-naas',
-        ];
+    $chapters = [
+    'al-faatiha',
+    'al-baqara',
+    'aal-i-imraan',
+    'an-nisaa',
+    'al-maaida',
+    'al-anaam',
+    'al-araaf',
+    'al-anfaal',
+    'at-tawba',
+    'yunus',
+    'hud',
+    'yusuf',
+    'arraad',
+    'ibrahim',
+    'al-hijr',
+    'an-nahl',
+    'al-israa',
+    'al-kahf',
+    'maryam',
+    'taa-haa',
+    'al-anbiyaa',
+    'al-hajj',
+    'al-muminoon',
+    'an-noor',
+    'al-furqaan',
+    'ash-shuaraa',
+    'an-naml',
+    'al-qasas',
+    'al-ankaboot',
+    'ar-room',
+    'luqman',
+    'as-sajda',
+    'al-ahzaab',
+    'saba',
+    'faatir',
+    'yaseen',
+    'as-saaffaat',
+    'saad',
+    'az-zumar',
+    'ghafir',
+    'fussilat',
+    'ash-shura',
+    'az-zukhruf',
+    'ad-dukhaan',
+    'al-jaathiya',
+    'al-ahqaf',
+    'muhammad',
+    'al-fath',
+    'al-hujuraat',
+    'qaaf',
+    'adh-dhaariyat',
+    'at-tur',
+    'an-najm',
+    'al-qamar',
+    'ar-rahmaan',
+    'al-waaqia',
+    'al-hadid',
+    'al-mujaadila',
+    'al-hashr',
+    'al-mumtahana',
+    'as-saff',
+    'al-jumua',
+    'al-munaafiqoon',
+    'at-taghaabun',
+    'at-talaaq',
+    'at-tahrim',
+    'al-mulk',
+    'al-qalam',
+    'al-haaqqa',
+    'al-ma-aarij',
+    'nooh',
+    'al-jinn',
+    'al-muzzammil',
+    'al-muddaththir',
+    'al-qiyaama',
+    'al-insaan',
+    'al-mursalaat',
+    'an-naba',
+    'an-naaziaat',
+    'abasa',
+    'at-takwir',
+    'al-infitaar',
+    'al-mutaffifin',
+    'al-inshiqaaq',
+    'al-burooj',
+    'at-taariq',
+    'al-alaa',
+    'al-ghaashiya',
+    'al-fajr',
+    'al-balad',
+    'ash-shams',
+    'al-lail',
+    'ad-dhuhaa',
+    'ash-sharh',
+    'at-tin',
+    'al-alaq',
+    'al-qadr',
+    'al-bayyina',
+    'az-zalzala',
+    'al-aadiyaat',
+    'al-qaaria',
+    'at-takaathur',
+    'al-asr',
+    'al-humaza',
+    'al-fil',
+    'quraish',
+    'al-maaun',
+    'al-kawthar',
+    'al-kaafiroon',
+    'an-nasr',
+    'al-masad',
+    'al-ikhlaas',
+    'al-falaq',
+    'an-naas',
+    ];
     @endphp
 
 
@@ -169,8 +169,7 @@
                         <div class="flex size-9 items-center justify-center rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-500/10 dark:text-primary-400">
                             <x-filament::icon
                                 icon="heroicon-o-book-open"
-                                class="size-5"
-                            />
+                                class="size-5" />
                         </div>
 
                         <div>
@@ -190,8 +189,7 @@
                         <div class="flex size-9 items-center justify-center rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-500/10 dark:text-primary-400">
                             <x-filament::icon
                                 icon="heroicon-o-language"
-                                class="size-5"
-                            />
+                                class="size-5" />
                         </div>
 
                         <div>
@@ -200,7 +198,7 @@
                             </div>
 
                             <div class="text-lg font-semibold text-gray-950 dark:text-white">
-                                3
+                                4
                             </div>
                         </div>
                     </div>
@@ -211,8 +209,7 @@
                         <div class="flex size-9 items-center justify-center rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-500/10 dark:text-primary-400">
                             <x-filament::icon
                                 icon="heroicon-o-server"
-                                class="size-5"
-                            />
+                                class="size-5" />
                         </div>
 
                         <div>
@@ -249,8 +246,7 @@
             <div class="mb-2 flex items-center gap-2">
                 <x-filament::icon
                     icon="heroicon-o-link"
-                    class="size-4 text-primary-600 dark:text-primary-400"
-                />
+                    class="size-4 text-primary-600 dark:text-primary-400" />
 
                 <span class="text-xs font-semibold uppercase tracking-wide text-primary-700 dark:text-primary-400">
                     API Base URL
@@ -268,8 +264,7 @@
             <div class="flex size-9 shrink-0 items-center justify-center rounded-lg bg-gray-100 text-gray-600 dark:bg-white/5 dark:text-gray-400">
                 <x-filament::icon
                     icon="heroicon-o-document-text"
-                    class="size-5"
-                />
+                    class="size-5" />
             </div>
 
             <div class="min-w-0">
@@ -281,8 +276,7 @@
                     href="{{ $docUrl }}"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="mt-1 block truncate text-sm text-primary-600 hover:underline dark:text-primary-400"
-                >
+                    class="mt-1 block truncate text-sm text-primary-600 hover:underline dark:text-primary-400">
                     {{ $docUrl }}
                 </a>
             </div>
@@ -311,8 +305,7 @@
                     <div class="flex size-9 shrink-0 items-center justify-center rounded-lg bg-primary-100 text-primary-600 dark:bg-primary-500/10 dark:text-primary-400">
                         <x-filament::icon
                             icon="heroicon-o-lock-closed"
-                            class="size-5"
-                        />
+                            class="size-5" />
                     </div>
 
                     <div>
@@ -343,8 +336,7 @@
                             <div class="flex size-9 shrink-0 items-center justify-center rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-500/10 dark:text-primary-400">
                                 <x-filament::icon
                                     icon="heroicon-o-key"
-                                    class="size-5"
-                                />
+                                    class="size-5" />
                             </div>
 
                             <div>
@@ -386,8 +378,7 @@
                             <div class="flex size-9 shrink-0 items-center justify-center rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-500/10 dark:text-primary-400">
                                 <x-filament::icon
                                     icon="heroicon-o-shield-check"
-                                    class="size-5"
-                                />
+                                    class="size-5" />
                             </div>
 
                             <div>
@@ -432,8 +423,7 @@
                         <div class="flex size-9 shrink-0 items-center justify-center rounded-lg bg-gray-100 text-gray-600 dark:bg-white/5 dark:text-gray-400">
                             <x-filament::icon
                                 icon="heroicon-o-document-text"
-                                class="size-5"
-                            />
+                                class="size-5" />
                         </div>
 
                         <div>
@@ -473,8 +463,7 @@
                     <div class="flex size-9 shrink-0 items-center justify-center rounded-lg bg-warning-100 text-warning-600 dark:bg-warning-500/10 dark:text-warning-400">
                         <x-filament::icon
                             icon="heroicon-o-exclamation-triangle"
-                            class="size-5"
-                        />
+                            class="size-5" />
                     </div>
 
                     <div>
@@ -518,86 +507,85 @@
         <div class="space-y-3">
 
             @foreach ([
-                [
-                    'name' => 'X-API-Key',
-                    'type' => 'string',
-                    'required' => true,
-                    'example' => 'JALOOT-PUB-...',
-                    'description' => 'Your public API key.',
-                    'icon' => 'heroicon-o-key',
-                ],
-                [
-                    'name' => 'X-API-Secret',
-                    'type' => 'string',
-                    'required' => true,
-                    'example' => 'JALOOT-SEC-...',
-                    'description' => 'Your private API secret.',
-                    'icon' => 'heroicon-o-shield-check',
-                ],
-                [
-                    'name' => 'Accept',
-                    'type' => 'string',
-                    'required' => false,
-                    'example' => 'application/json',
-                    'description' => 'Optional response format header.',
-                    'icon' => 'heroicon-o-document-text',
-                ],
+            [
+            'name' => 'X-API-Key',
+            'type' => 'string',
+            'required' => true,
+            'example' => 'JALOOT-PUB-...',
+            'description' => 'Your public API key.',
+            'icon' => 'heroicon-o-key',
+            ],
+            [
+            'name' => 'X-API-Secret',
+            'type' => 'string',
+            'required' => true,
+            'example' => 'JALOOT-SEC-...',
+            'description' => 'Your private API secret.',
+            'icon' => 'heroicon-o-shield-check',
+            ],
+            [
+            'name' => 'Accept',
+            'type' => 'string',
+            'required' => false,
+            'example' => 'application/json',
+            'description' => 'Optional response format header.',
+            'icon' => 'heroicon-o-document-text',
+            ],
             ] as $header)
 
-                <div class="rounded-xl border border-gray-200 bg-white p-4 dark:border-white/10 dark:bg-white/[0.02]">
+            <div class="rounded-xl border border-gray-200 bg-white p-4 dark:border-white/10 dark:bg-white/[0.02]">
 
-                    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
 
-                        <div class="flex items-start gap-3">
+                    <div class="flex items-start gap-3">
 
-                            <div class="flex size-9 shrink-0 items-center justify-center rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-500/10 dark:text-primary-400">
-                                <x-filament::icon
-                                    :icon="$header['icon']"
-                                    class="size-5"
-                                />
-                            </div>
-
-                            <div>
-                                <div class="flex flex-wrap items-center gap-2">
-
-                                    <code class="text-sm font-semibold text-gray-950 dark:text-white">
-                                        {{ $header['name'] }}
-                                    </code>
-
-                                    <x-filament::badge color="gray" size="sm">
-                                        {{ $header['type'] }}
-                                    </x-filament::badge>
-
-                                </div>
-
-                                <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-                                    {{ $header['description'] }}
-                                </p>
-                            </div>
-
+                        <div class="flex size-9 shrink-0 items-center justify-center rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-500/10 dark:text-primary-400">
+                            <x-filament::icon
+                                :icon="$header['icon']"
+                                class="size-5" />
                         </div>
 
-                        <div class="flex flex-wrap items-center gap-2 sm:justify-end">
+                        <div>
+                            <div class="flex flex-wrap items-center gap-2">
 
-                            <code class="rounded-lg bg-gray-100 px-2.5 py-1.5 text-xs text-gray-700 dark:bg-white/5 dark:text-gray-300">
-                                {{ $header['example'] }}
-                            </code>
+                                <code class="text-sm font-semibold text-gray-950 dark:text-white">
+                                    {{ $header['name'] }}
+                                </code>
 
-                            @if ($header['required'])
-                                <x-filament::badge color="danger" size="sm">
-                                    Required
-                                </x-filament::badge>
-                            @else
                                 <x-filament::badge color="gray" size="sm">
-                                    Optional
+                                    {{ $header['type'] }}
                                 </x-filament::badge>
-                            @endif
 
+                            </div>
+
+                            <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+                                {{ $header['description'] }}
+                            </p>
                         </div>
 
                     </div>
 
+                    <div class="flex flex-wrap items-center gap-2 sm:justify-end">
+
+                        <code class="rounded-lg bg-gray-100 px-2.5 py-1.5 text-xs text-gray-700 dark:bg-white/5 dark:text-gray-300">
+                            {{ $header['example'] }}
+                        </code>
+
+                        @if ($header['required'])
+                        <x-filament::badge color="danger" size="sm">
+                            Required
+                        </x-filament::badge>
+                        @else
+                        <x-filament::badge color="gray" size="sm">
+                            Optional
+                        </x-filament::badge>
+                        @endif
+
+                    </div>
+
                 </div>
+
+            </div>
 
             @endforeach
 
@@ -618,8 +606,7 @@
 
         <div
             x-data="{ copied: false }"
-            class="relative"
-        >
+            class="relative">
 
             <pre class="overflow-x-auto rounded-xl bg-gray-950 p-5 text-xs leading-relaxed text-gray-100"><code>curl "{{ $baseUrl }}/v2/chapter/al-faatiha" \
   -H "X-API-Key: YOUR_API_KEY" \
@@ -637,12 +624,10 @@
                         });
                     }
                 "
-                class="absolute right-3 top-3 inline-flex items-center gap-1.5 rounded-lg bg-white/10 px-2.5 py-1.5 text-xs font-medium text-gray-200 transition hover:bg-white/20"
-            >
+                class="absolute right-3 top-3 inline-flex items-center gap-1.5 rounded-lg bg-white/10 px-2.5 py-1.5 text-xs font-medium text-gray-200 transition hover:bg-white/20">
                 <x-filament::icon
                     icon="heroicon-o-clipboard-document"
-                    class="size-4"
-                />
+                    class="size-4" />
 
                 <span x-show="!copied">
                     Copy
@@ -650,8 +635,7 @@
 
                 <span
                     x-show="copied"
-                    x-cloak
-                >
+                    x-cloak>
                     Copied!
                 </span>
             </button>
@@ -762,6 +746,80 @@
 
             </div>
 
+            {{-- Random Verse --}}
+            <div class="rounded-xl border border-primary-200 bg-primary-50/50 p-5 dark:border-primary-500/20 dark:bg-primary-500/5">
+
+                <div class="flex flex-wrap items-center gap-2">
+
+                    <x-filament::badge color="success">
+                        GET
+                    </x-filament::badge>
+
+                    <code class="text-sm font-medium text-gray-900 dark:text-gray-100">
+                        /v2/verse/random
+                    </code>
+
+                    <x-filament::badge color="warning">
+                        No cache
+                    </x-filament::badge>
+
+                </div>
+
+                <p class="mt-3 text-sm leading-6 text-gray-600 dark:text-gray-400">
+                    Returns one randomly selected Quran verse with its chapter,
+                    localized text and available tafsir entries.
+                    The <code>lang</code> query parameter is optional.
+                    Arabic (<code>ar</code>) is used when no language is supplied.
+                </p>
+
+                <div class="mt-4 flex flex-wrap gap-2">
+                    <x-filament::badge color="primary">
+                        Random verse
+                    </x-filament::badge>
+
+                    <x-filament::badge color="gray">
+                        lang optional
+                    </x-filament::badge>
+
+                    <x-filament::badge color="gray">
+                        ar · en · fr · es
+                    </x-filament::badge>
+
+                    <x-filament::badge color="warning">
+                        Not cached
+                    </x-filament::badge>
+                </div>
+
+                <div class="mt-4">
+                    <div class="mb-2 text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                        Query parameter
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-2">
+                        <code class="text-sm font-semibold text-gray-950 dark:text-white">
+                            lang
+                        </code>
+
+                        <x-filament::badge color="gray" size="sm">
+                            string
+                        </x-filament::badge>
+
+                        <x-filament::badge color="gray" size="sm">
+                            Optional
+                        </x-filament::badge>
+
+                        <span class="text-xs text-gray-500 dark:text-gray-400">
+                            Supported values:
+                            <code>ar</code>,
+                            <code>en</code>,
+                            <code>fr</code>,
+                            <code>es</code>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
     </x-filament::section>
 
@@ -774,7 +832,7 @@
         <x-slot name="heading">Languages</x-slot>
 
         <x-slot name="description">
-            The API currently supports Arabic, English and French.
+            The API currently supports Arabic, English, French and Spanish.
         </x-slot>
 
         <div class="grid grid-cols-1 gap-3 sm:grid-cols-3">
@@ -821,6 +879,20 @@
                 </div>
             </div>
 
+            <div class="rounded-xl border border-gray-200 bg-white p-4 dark:border-white/10 dark:bg-white/[0.02]">
+                <x-filament::badge color="primary">
+                    es
+                </x-filament::badge>
+
+                <div class="mt-3 text-sm font-semibold text-gray-950 dark:text-white">
+                    Spanish
+                </div>
+
+                <div class="mt-1 text-xs text-gray-500 dark:text-gray-400">
+                    Spanish translation
+                </div>
+            </div>
+
         </div>
 
         <div class="mt-4 rounded-xl border border-gray-200 bg-gray-50 p-4 dark:border-white/10 dark:bg-white/5">
@@ -829,12 +901,12 @@
 
                 <x-filament::icon
                     icon="heroicon-o-language"
-                    class="mt-0.5 size-5 shrink-0 text-primary-600 dark:text-primary-400"
-                />
+                    class="mt-0.5 size-5 shrink-0 text-primary-600 dark:text-primary-400" />
 
                 <p class="text-sm leading-6 text-gray-600 dark:text-gray-400">
                     Arabic (<code>ar</code>) is used by default when no language
-                    preference is supplied.
+                    preference is supplied. Supported languages are
+                    <code>ar</code>, <code>en</code>, <code>fr</code> and <code>es</code>.
                     The response exposes the selected language through the
                     <code>language</code> object.
                 </p>
@@ -873,8 +945,8 @@
                 </div>
 
                 <p class="mt-2 text-xs leading-5 text-gray-500 dark:text-gray-400">
-                    Language identifier such as <code>ar</code>, <code>en</code>
-                    or <code>fr</code>.
+                    Language identifier such as <code>ar</code>, <code>en</code>,
+                    <code>fr</code> or <code>es</code>.
                 </p>
 
             </div>
@@ -919,12 +991,11 @@
 
             @foreach ($chapters as $index => $slug)
 
-                <x-filament::badge
-                    color="primary"
-                    :tooltip="'Chapter ' . ($index + 1)"
-                >
-                    {{ $slug }}
-                </x-filament::badge>
+            <x-filament::badge
+                color="gray"
+                :tooltip="'Chapter ' . ($index + 1)">
+                {{ $slug }}
+            </x-filament::badge>
 
             @endforeach
 
@@ -958,77 +1029,77 @@
         <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
 
             @foreach ([
-                [
-                    'name' => 'id',
-                    'type' => 'integer',
-                    'desc' => 'Chapter number from 1 to 114.',
-                ],
-                [
-                    'name' => 'name',
-                    'type' => 'string',
-                    'desc' => 'Arabic chapter name.',
-                ],
-                [
-                    'name' => 'name_transliteration',
-                    'type' => 'string',
-                    'desc' => 'Transliterated chapter name.',
-                ],
-                [
-                    'name' => 'slug',
-                    'type' => 'string',
-                    'desc' => 'Unique chapter slug used as an identifier.',
-                ],
-                [
-                    'name' => 'revelation',
-                    'type' => 'object',
-                    'desc' => 'Revelation place, type and chronological order.',
-                ],
-                [
-                    'name' => 'verses_count',
-                    'type' => 'integer',
-                    'desc' => 'Total number of verses in the chapter.',
-                ],
-                [
-                    'name' => 'pages',
-                    'type' => 'object',
-                    'desc' => 'Starting and ending Mushaf pages.',
-                ],
-                [
-                    'name' => 'basmala',
-                    'type' => 'object',
-                    'desc' => 'Basmala inclusion and verse status.',
-                ],
-                [
-                    'name' => 'prostrations',
-                    'type' => 'array',
-                    'desc' => 'Prostration markers associated with the chapter.',
-                ],
-                [
-                    'name' => 'verses',
-                    'type' => 'array',
-                    'desc' => 'Complete list of verses when returned by the chapter resource.',
-                ],
+            [
+            'name' => 'id',
+            'type' => 'integer',
+            'desc' => 'Chapter number from 1 to 114.',
+            ],
+            [
+            'name' => 'name',
+            'type' => 'string',
+            'desc' => 'Arabic chapter name.',
+            ],
+            [
+            'name' => 'name_transliteration',
+            'type' => 'string',
+            'desc' => 'Transliterated chapter name.',
+            ],
+            [
+            'name' => 'slug',
+            'type' => 'string',
+            'desc' => 'Unique chapter slug used as an identifier.',
+            ],
+            [
+            'name' => 'revelation',
+            'type' => 'object',
+            'desc' => 'Revelation place, type and chronological order.',
+            ],
+            [
+            'name' => 'verses_count',
+            'type' => 'integer',
+            'desc' => 'Total number of verses in the chapter.',
+            ],
+            [
+            'name' => 'pages',
+            'type' => 'object',
+            'desc' => 'Starting and ending Mushaf pages.',
+            ],
+            [
+            'name' => 'basmala',
+            'type' => 'object',
+            'desc' => 'Basmala inclusion and verse status.',
+            ],
+            [
+            'name' => 'prostrations',
+            'type' => 'array',
+            'desc' => 'Prostration markers associated with the chapter.',
+            ],
+            [
+            'name' => 'verses',
+            'type' => 'array',
+            'desc' => 'Complete list of verses when returned by the chapter resource.',
+            ],
             ] as $field)
 
-                <div class="rounded-xl border border-gray-200 bg-white p-4 dark:border-white/10 dark:bg-white/[0.02]">
+            <div class="rounded-xl border border-gray-200 bg-white p-4 dark:border-white/10 dark:bg-white/[0.02]">
 
-                    <div class="flex flex-wrap items-center gap-2">
+                <div class="flex flex-wrap items-center gap-2">
 
-                        <code class="text-sm font-semibold text-gray-950 dark:text-white">
-                            {{ $field['name'] }}
-                        </code>
+                    <code class="text-sm font-semibold text-gray-950 dark:text-white">
+                        {{ $field['name'] }}
+                    </code>
 
-                        <x-filament::badge color="gray" size="sm">
-                            {{ $field['type'] }}
-                        </x-filament::badge>
-
-                    </div>
-
-                    <p class="mt-2 text-xs leading-5 text-gray-500 dark:text-gray-400">
-                        {{ $field['desc'] }}
-                    </p>
+                    <x-filament::badge color="gray" size="sm">
+                        {{ $field['type'] }}
+                    </x-filament::badge>
 
                 </div>
+
+                <p class="mt-2 text-xs leading-5 text-gray-500 dark:text-gray-400">
+                    {{ $field['desc'] }}
+                </p>
+
+            </div>
 
             @endforeach
 
@@ -1050,49 +1121,49 @@
         <div class="grid grid-cols-1 gap-3 md:grid-cols-3">
 
             @foreach ([
-                [
-                    'name' => 'place',
-                    'type' => 'string',
-                    'desc' => 'Revelation location.',
-                    'example' => 'مكّة المكرّمة',
-                ],
-                [
-                    'name' => 'type',
-                    'type' => 'string',
-                    'desc' => 'Revelation classification.',
-                    'example' => 'مكية',
-                ],
-                [
-                    'name' => 'order',
-                    'type' => 'integer',
-                    'desc' => 'Chronological revelation order.',
-                    'example' => '5',
-                ],
+            [
+            'name' => 'place',
+            'type' => 'string',
+            'desc' => 'Revelation location.',
+            'example' => 'مكّة المكرّمة',
+            ],
+            [
+            'name' => 'type',
+            'type' => 'string',
+            'desc' => 'Revelation classification.',
+            'example' => 'مكية',
+            ],
+            [
+            'name' => 'order',
+            'type' => 'integer',
+            'desc' => 'Chronological revelation order.',
+            'example' => '5',
+            ],
             ] as $field)
 
-                <div class="rounded-xl border border-gray-200 p-4 dark:border-white/10">
+            <div class="rounded-xl border border-gray-200 p-4 dark:border-white/10">
 
-                    <div class="flex items-center gap-2">
+                <div class="flex items-center gap-2">
 
-                        <code class="text-sm font-semibold text-gray-950 dark:text-white">
-                            {{ $field['name'] }}
-                        </code>
-
-                        <x-filament::badge color="gray" size="sm">
-                            {{ $field['type'] }}
-                        </x-filament::badge>
-
-                    </div>
-
-                    <p class="mt-2 text-xs text-gray-500 dark:text-gray-400">
-                        {{ $field['desc'] }}
-                    </p>
-
-                    <code class="mt-3 inline-flex rounded-md bg-gray-100 px-2 py-1 text-xs text-gray-700 dark:bg-white/5 dark:text-gray-300">
-                        {{ $field['example'] }}
+                    <code class="text-sm font-semibold text-gray-950 dark:text-white">
+                        {{ $field['name'] }}
                     </code>
 
+                    <x-filament::badge color="gray" size="sm">
+                        {{ $field['type'] }}
+                    </x-filament::badge>
+
                 </div>
+
+                <p class="mt-2 text-xs text-gray-500 dark:text-gray-400">
+                    {{ $field['desc'] }}
+                </p>
+
+                <code class="mt-3 inline-flex rounded-md bg-gray-100 px-2 py-1 text-xs text-gray-700 dark:bg-white/5 dark:text-gray-300">
+                    {{ $field['example'] }}
+                </code>
+
+            </div>
 
             @endforeach
 
@@ -1162,8 +1233,7 @@
 
                 <x-filament::icon
                     icon="heroicon-o-information-circle"
-                    class="mt-0.5 size-5 shrink-0 text-primary-600 dark:text-primary-400"
-                />
+                    class="mt-0.5 size-5 shrink-0 text-primary-600 dark:text-primary-400" />
 
                 <div class="text-sm leading-6 text-gray-600 dark:text-gray-400">
 
@@ -1197,52 +1267,67 @@
         <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
 
             @foreach ([
-                [
-                    'name' => 'number',
-                    'type' => 'integer',
-                    'desc' => 'Verse number within the chapter.',
-                ],
-                [
-                    'name' => 'text',
-                    'type' => 'string',
-                    'desc' => 'Verse text in the requested language.',
-                ],
-                [
-                    'name' => 'line',
-                    'type' => 'integer',
-                    'desc' => 'Mushaf line reference.',
-                ],
-                [
-                    'name' => 'juz',
-                    'type' => 'integer',
-                    'desc' => 'Juz containing the verse.',
-                ],
-                [
-                    'name' => 'page',
-                    'type' => 'integer',
-                    'desc' => 'Mushaf page containing the verse.',
-                ],
+            [
+            'name' => 'number',
+            'type' => 'integer',
+            'desc' => 'Verse number within the chapter.',
+            ],
+            [
+            'name' => 'text',
+            'type' => 'string',
+            'desc' => 'Verse text in the requested language.',
+            ],
+            [
+            'name' => 'text_simple',
+            'type' => 'string',
+            'desc' => 'Simplified Quranic text without the full diacritic notation.',
+            ],
+            [
+            'name' => 'recitation',
+            'type' => 'string',
+            'desc' => 'Quran recitation associated with the verse, such as Warsh.',
+            ],
+            [
+            'name' => 'line',
+            'type' => 'integer',
+            'desc' => 'Mushaf line reference.',
+            ],
+            [
+            'name' => 'juz',
+            'type' => 'integer',
+            'desc' => 'Juz containing the verse.',
+            ],
+            [
+            'name' => 'page',
+            'type' => 'integer',
+            'desc' => 'Mushaf page containing the verse.',
+            ],
+            [
+            'name' => 'tafsirs',
+            'type' => 'array',
+            'desc' => 'Available tafsir entries for the requested language.',
+            ],
             ] as $field)
 
-                <div class="rounded-xl border border-gray-200 bg-white p-4 dark:border-white/10 dark:bg-white/[0.02]">
+            <div class="rounded-xl border border-gray-200 bg-white p-4 dark:border-white/10 dark:bg-white/[0.02]">
 
-                    <div class="flex flex-wrap items-center gap-2">
+                <div class="flex flex-wrap items-center gap-2">
 
-                        <code class="text-sm font-semibold text-gray-950 dark:text-white">
-                            {{ $field['name'] }}
-                        </code>
+                    <code class="text-sm font-semibold text-gray-950 dark:text-white">
+                        {{ $field['name'] }}
+                    </code>
 
-                        <x-filament::badge color="gray" size="sm">
-                            {{ $field['type'] }}
-                        </x-filament::badge>
-
-                    </div>
-
-                    <p class="mt-2 text-xs leading-5 text-gray-500 dark:text-gray-400">
-                        {{ $field['desc'] }}
-                    </p>
+                    <x-filament::badge color="gray" size="sm">
+                        {{ $field['type'] }}
+                    </x-filament::badge>
 
                 </div>
+
+                <p class="mt-2 text-xs leading-5 text-gray-500 dark:text-gray-400">
+                    {{ $field['desc'] }}
+                </p>
+
+            </div>
 
             @endforeach
 
@@ -1265,42 +1350,42 @@
         <div class="grid grid-cols-1 gap-3 md:grid-cols-3">
 
             @foreach ([
-                [
-                    'name' => 'verse_number',
-                    'type' => 'integer',
-                    'desc' => 'Verse containing the prostration marker.',
-                ],
-                [
-                    'name' => 'recommended',
-                    'type' => 'boolean',
-                    'desc' => 'Whether the prostration is recommended.',
-                ],
-                [
-                    'name' => 'obligatory',
-                    'type' => 'boolean',
-                    'desc' => 'Whether the prostration is obligatory.',
-                ],
+            [
+            'name' => 'verse_number',
+            'type' => 'integer',
+            'desc' => 'Verse containing the prostration marker.',
+            ],
+            [
+            'name' => 'recommended',
+            'type' => 'boolean',
+            'desc' => 'Whether the prostration is recommended.',
+            ],
+            [
+            'name' => 'obligatory',
+            'type' => 'boolean',
+            'desc' => 'Whether the prostration is obligatory.',
+            ],
             ] as $field)
 
-                <div class="rounded-xl border border-gray-200 p-4 dark:border-white/10">
+            <div class="rounded-xl border border-gray-200 p-4 dark:border-white/10">
 
-                    <div class="flex items-center gap-2">
+                <div class="flex items-center gap-2">
 
-                        <code class="text-sm font-semibold text-gray-950 dark:text-white">
-                            {{ $field['name'] }}
-                        </code>
+                    <code class="text-sm font-semibold text-gray-950 dark:text-white">
+                        {{ $field['name'] }}
+                    </code>
 
-                        <x-filament::badge color="gray" size="sm">
-                            {{ $field['type'] }}
-                        </x-filament::badge>
-
-                    </div>
-
-                    <p class="mt-2 text-xs leading-5 text-gray-500 dark:text-gray-400">
-                        {{ $field['desc'] }}
-                    </p>
+                    <x-filament::badge color="gray" size="sm">
+                        {{ $field['type'] }}
+                    </x-filament::badge>
 
                 </div>
+
+                <p class="mt-2 text-xs leading-5 text-gray-500 dark:text-gray-400">
+                    {{ $field['desc'] }}
+                </p>
+
+            </div>
 
             @endforeach
 
@@ -1334,8 +1419,7 @@
 
         <div
             x-data="{ copied: false }"
-            class="relative"
-        >
+            class="relative">
 
             <pre class="overflow-x-auto rounded-xl bg-gray-950 p-5 text-xs leading-relaxed text-gray-100"><code>{
   "request": {
@@ -1388,12 +1472,10 @@
                         });
                     }
                 "
-                class="absolute right-3 top-3 inline-flex items-center gap-1.5 rounded-lg bg-white/10 px-2.5 py-1.5 text-xs font-medium text-gray-200 transition hover:bg-white/20"
-            >
+                class="absolute right-3 top-3 inline-flex items-center gap-1.5 rounded-lg bg-white/10 px-2.5 py-1.5 text-xs font-medium text-gray-200 transition hover:bg-white/20">
                 <x-filament::icon
                     icon="heroicon-o-clipboard-document"
-                    class="size-4"
-                />
+                    class="size-4" />
 
                 <span x-show="!copied">
                     Copy
@@ -1401,8 +1483,104 @@
 
                 <span
                     x-show="copied"
-                    x-cloak
-                >
+                    x-cloak>
+                    Copied!
+                </span>
+            </button>
+
+        </div>
+    </x-filament::section>
+
+
+    {{-- ============================================================
+        Random Verse Response
+    ============================================================ --}}
+
+    <x-filament::section>
+        <x-slot name="heading">Random Verse Response</x-slot>
+
+        <x-slot name="description">
+            Example response returned by <code>/v2/verse/random</code>.
+            This endpoint is not cached, so the request cache metadata is always
+            reported with no cache key, store or cache time.
+        </x-slot>
+
+        <div
+            x-data="{ copied: false }"
+            class="relative">
+
+            <pre class="overflow-x-auto rounded-xl bg-gray-950 p-5 text-xs leading-relaxed text-gray-100"><code>{
+  "request": {
+    "status": 200,
+    "response_time": "137.02ms",
+    "cache": {
+      "hit": false,
+      "key": null,
+      "store": null,
+      "time": null
+    }
+  },
+  "lang": "العربية",
+  "chapter": {
+    "number": 77,
+    "slug": "al-mursalaat",
+    "name": "المرسلات"
+  },
+  "verse": 3,
+  "text": "وَالنَّٰشِرَٰتِ نَشْرا ࣰ‏",
+  "text_simple": "والناشرات نشرا",
+  "recitation": "ورش",
+  "tafsirs": [
+    {
+      "title": "التفسير الميسر",
+      "author": "نخبة من العلماء",
+      "book_name": "التفسير الميسر",
+      "text": "أقسم الله تعالى بالرياح حين تهب متتابعة يقفو بعضها بعضًا، وبالرياح الشديدة الهبوب المهلكة، وبالملائكة الموكلين بالسحب يسوقونها حيث شاء الله، وبالملائكة التي تنزل من عند الله بما يفرق بين الحق والباطل والحلال والحرام، وبالملائكة التي تتلقى الوحي من عند الله وتنزل به على أنبيائه؛ إعذارًا من الله إلى خلقه وإنذارًا منه إليهم؛ لئلا يكون لهم حجة. إن الذي توعدون به مِن أمر يوم القيامة وما فيه من حساب وجزاء لنازلٌ بكم لا محالة."
+    },
+    {
+      "title": "تفسير الجلالين",
+      "author": "جلال الدين المحلي و السيوطي",
+      "book_name": "تفسير الجلالين",
+      "text": "«والناشرات نشرا» الرياح تنشر المطر."
+    },
+    {
+      "title": "تفسير السعدي",
+      "author": "عبد الرحمن بن ناصر بن عبد الله السعدي التميمي مفسر",
+      "book_name": "تيسير الكريم الرحمن في تفسير كلام المنان",
+      "text": "وَالنَّاشِرَاتِ نَشْرًا يحتمل أنها الملائكة، تنشر ما دبرت على نشره، أو أنها السحاب التي ينشر بها الله الأرض، فيحييها بعد موتها."
+    },
+    {
+      "title": "تفسير ابن كثير",
+      "author": "عماد الدين أبي الفداء إسماعيل بن كثير القرشي",
+      "book_name": "تفسير القرآن العظيم",
+      "text": "هي الرياح التي تنشر السحاب في آفاق السماء كما يشاء الرب عز وجل."
+    }
+  ]
+}</code></pre>
+
+            <button
+                type="button"
+                x-on:click="
+                    const text = $el.previousElementSibling.innerText;
+                    if (navigator.clipboard) {
+                        navigator.clipboard.writeText(text).then(() => {
+                            copied = true;
+                            setTimeout(() => copied = false, 1500);
+                        });
+                    }
+                "
+                class="absolute right-3 top-3 inline-flex items-center gap-1.5 rounded-lg bg-white/10 px-2.5 py-1.5 text-xs font-medium text-gray-200 transition hover:bg-white/20">
+                <x-filament::icon
+                    icon="heroicon-o-clipboard-document"
+                    class="size-4" />
+
+                <span x-show="!copied">
+                    Copy
+                </span>
+
+                <span
+                    x-show="copied"
+                    x-cloak>
                     Copied!
                 </span>
             </button>
@@ -1419,59 +1597,64 @@
         <x-slot name="heading">Caching</x-slot>
 
         <x-slot name="description">
-            API responses are cached using Redis to improve performance
-            and reduce database load.
+            Cacheable API responses use Redis to improve performance
+            and reduce database load. The <code>/v2/verse/random</code> endpoint
+            is intentionally not cached.
         </x-slot>
 
         <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
 
             @foreach ([
-                [
-                    'title' => 'Store',
-                    'value' => 'Redis',
-                    'icon' => 'heroicon-o-circle-stack',
-                ],
-                [
-                    'title' => 'Cache hit',
-                    'value' => 'Boolean',
-                    'icon' => 'heroicon-o-check-circle',
-                ],
-                [
-                    'title' => 'Cache key',
-                    'value' => 'String',
-                    'icon' => 'heroicon-o-key',
-                ],
-                [
-                    'title' => 'Timing',
-                    'value' => 'Milliseconds',
-                    'icon' => 'heroicon-o-clock',
-                ],
+            [
+            'title' => 'Store',
+            'value' => 'Redis',
+            'icon' => 'heroicon-o-circle-stack',
+            ],
+            [
+            'title' => 'Cache hit',
+            'value' => 'Boolean',
+            'icon' => 'heroicon-o-check-circle',
+            ],
+            [
+            'title' => 'Cache key',
+            'value' => 'String',
+            'icon' => 'heroicon-o-key',
+            ],
+            [
+            'title' => 'Timing',
+            'value' => 'Milliseconds',
+            'icon' => 'heroicon-o-clock',
+            ],
+            [
+            'title' => 'Random verse',
+            'value' => 'No cache',
+            'icon' => 'heroicon-o-arrow-path',
+            ],
             ] as $item)
 
-                <div class="rounded-xl border border-gray-200 bg-white p-4 dark:border-white/10 dark:bg-white/[0.02]">
+            <div class="rounded-xl border border-gray-200 bg-white p-4 dark:border-white/10 dark:bg-white/[0.02]">
 
-                    <div class="flex items-center gap-3">
+                <div class="flex items-center gap-3">
 
-                        <div class="flex size-9 items-center justify-center rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-500/10 dark:text-primary-400">
-                            <x-filament::icon
-                                :icon="$item['icon']"
-                                class="size-5"
-                            />
+                    <div class="flex size-9 items-center justify-center rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-500/10 dark:text-primary-400">
+                        <x-filament::icon
+                            :icon="$item['icon']"
+                            class="size-5" />
+                    </div>
+
+                    <div>
+                        <div class="text-xs text-gray-500 dark:text-gray-400">
+                            {{ $item['title'] }}
                         </div>
 
-                        <div>
-                            <div class="text-xs text-gray-500 dark:text-gray-400">
-                                {{ $item['title'] }}
-                            </div>
-
-                            <div class="text-sm font-semibold text-gray-950 dark:text-white">
-                                {{ $item['value'] }}
-                            </div>
+                        <div class="text-sm font-semibold text-gray-950 dark:text-white">
+                            {{ $item['value'] }}
                         </div>
-
                     </div>
 
                 </div>
+
+            </div>
 
             @endforeach
 
@@ -1512,31 +1695,31 @@
         <div class="mt-5 space-y-3">
 
             @foreach ([
-                [
-                    'error' => 'missing_parameters',
-                    'desc' => 'Required request parameters are missing.',
-                ],
-                [
-                    'error' => 'invalid_identifier',
-                    'desc' => 'The supplied chapter identifier is invalid.',
-                ],
-                [
-                    'error' => 'chapter_not_found',
-                    'desc' => 'No chapter matches the supplied identifier.',
-                ],
+            [
+            'error' => 'missing_parameters',
+            'desc' => 'Required request parameters are missing.',
+            ],
+            [
+            'error' => 'invalid_identifier',
+            'desc' => 'The supplied chapter identifier is invalid.',
+            ],
+            [
+            'error' => 'chapter_not_found',
+            'desc' => 'No chapter matches the supplied identifier.',
+            ],
             ] as $error)
 
-                <div class="flex flex-col gap-3 rounded-xl border border-gray-200 bg-white p-4 sm:flex-row sm:items-center dark:border-white/10 dark:bg-white/[0.02]">
+            <div class="flex flex-col gap-3 rounded-xl border border-gray-200 bg-white p-4 sm:flex-row sm:items-center dark:border-white/10 dark:bg-white/[0.02]">
 
-                    <x-filament::badge color="danger">
-                        {{ $error['error'] }}
-                    </x-filament::badge>
+                <x-filament::badge color="danger">
+                    {{ $error['error'] }}
+                </x-filament::badge>
 
-                    <span class="text-sm text-gray-600 dark:text-gray-400">
-                        {{ $error['desc'] }}
-                    </span>
+                <span class="text-sm text-gray-600 dark:text-gray-400">
+                    {{ $error['desc'] }}
+                </span>
 
-                </div>
+            </div>
 
             @endforeach
 
@@ -1558,63 +1741,63 @@
         <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
 
             @foreach ([
-                [
-                    'code' => '200',
-                    'title' => 'OK',
-                    'desc' => 'The request completed successfully.',
-                    'color' => 'success',
-                ],
-                [
-                    'code' => '401',
-                    'title' => 'Unauthorized',
-                    'desc' => 'API credentials are missing or invalid.',
-                    'color' => 'danger',
-                ],
-                [
-                    'code' => '404',
-                    'title' => 'Not Found',
-                    'desc' => 'The requested chapter could not be found.',
-                    'color' => 'danger',
-                ],
-                [
-                    'code' => '422',
-                    'title' => 'Unprocessable Entity',
-                    'desc' => 'The supplied identifier or request data is invalid.',
-                    'color' => 'danger',
-                ],
-                [
-                    'code' => '429',
-                    'title' => 'Too Many Requests',
-                    'desc' => 'The API rate limit has been exceeded.',
-                    'color' => 'warning',
-                ],
-                [
-                    'code' => '500',
-                    'title' => 'Server Error',
-                    'desc' => 'An unexpected server-side error occurred.',
-                    'color' => 'danger',
-                ],
+            [
+            'code' => '200',
+            'title' => 'OK',
+            'desc' => 'The request completed successfully.',
+            'color' => 'success',
+            ],
+            [
+            'code' => '401',
+            'title' => 'Unauthorized',
+            'desc' => 'API credentials are missing or invalid.',
+            'color' => 'danger',
+            ],
+            [
+            'code' => '404',
+            'title' => 'Not Found',
+            'desc' => 'The requested chapter could not be found.',
+            'color' => 'danger',
+            ],
+            [
+            'code' => '422',
+            'title' => 'Unprocessable Entity',
+            'desc' => 'The supplied identifier or request data is invalid.',
+            'color' => 'danger',
+            ],
+            [
+            'code' => '429',
+            'title' => 'Too Many Requests',
+            'desc' => 'The API rate limit has been exceeded.',
+            'color' => 'warning',
+            ],
+            [
+            'code' => '500',
+            'title' => 'Server Error',
+            'desc' => 'An unexpected server-side error occurred.',
+            'color' => 'danger',
+            ],
             ] as $status)
 
-                <div class="rounded-xl border border-gray-200 bg-white p-4 dark:border-white/10 dark:bg-white/[0.02]">
+            <div class="rounded-xl border border-gray-200 bg-white p-4 dark:border-white/10 dark:bg-white/[0.02]">
 
-                    <div class="flex items-center gap-2">
+                <div class="flex items-center gap-2">
 
-                        <x-filament::badge :color="$status['color']">
-                            {{ $status['code'] }}
-                        </x-filament::badge>
+                    <x-filament::badge :color="$status['color']">
+                        {{ $status['code'] }}
+                    </x-filament::badge>
 
-                        <span class="text-sm font-semibold text-gray-950 dark:text-white">
-                            {{ $status['title'] }}
-                        </span>
-
-                    </div>
-
-                    <p class="mt-2 text-xs leading-5 text-gray-500 dark:text-gray-400">
-                        {{ $status['desc'] }}
-                    </p>
+                    <span class="text-sm font-semibold text-gray-950 dark:text-white">
+                        {{ $status['title'] }}
+                    </span>
 
                 </div>
+
+                <p class="mt-2 text-xs leading-5 text-gray-500 dark:text-gray-400">
+                    {{ $status['desc'] }}
+                </p>
+
+            </div>
 
             @endforeach
 
@@ -1634,7 +1817,7 @@
         </x-slot>
 
         <div class="space-y-5">
-
+            
             {{-- By number --}}
             <div>
 
@@ -1681,6 +1864,29 @@
             </div>
 
 
+            {{-- Random verse --}}
+            <div>
+
+                <div class="mb-2 flex flex-wrap items-center gap-2">
+
+                    <x-filament::badge color="success">
+                        GET
+                    </x-filament::badge>
+
+                    <code class="text-sm font-medium">
+                        Random verse
+                    </code>
+
+                    <x-filament::badge color="warning">
+                        No cache
+                    </x-filament::badge>
+
+                </div>
+                <pre class="overflow-x-auto rounded-xl bg-gray-950 p-5 text-xs leading-relaxed text-gray-100"><code>curl "{{ $baseUrl }}/v2/verse/random" \
+ -H "X-API-Key: YOUR_API_KEY" \
+ -H "X-API-Secret: YOUR_API_SECRET" \
+ -H "Accept: application/json"</code></pre>
+            </div>
             {{-- All chapters --}}
             <div>
 
@@ -1696,13 +1902,18 @@
 
                 </div>
 
-                <pre class="overflow-x-auto rounded-xl bg-gray-950 p-5 text-xs leading-relaxed text-gray-100"><code>curl "{{ $baseUrl }}/v2/chapters" \
-  -H "X-API-Key: YOUR_API_KEY" \
-  -H "X-API-Secret: YOUR_API_SECRET" \
-  -H "Accept: application/json"</code></pre>
+                <pre class="overflow-x-auto rounded-xl bg-gray-950 p-5 text-xs leading-relaxed text-gray-100">
+<code>
+curl "{{ $baseUrl }}/v2/chapters" \
+    -H "X-API-Key: YOUR_API_KEY" \
+    -H "X-API-Secret: YOUR_API_SECRET" \
+    -H "Accept: application/json"
+</code>
+</pre>
 
             </div>
-
+            
+            <p class="mb-3 text-xs text-gray-500 dark:text-gray-400">The <code>lang</code> parameter is optional. Arabic is used by default. <code>?lang=ar|en|es|fr</code></p>
         </div>
     </x-filament::section>
 
@@ -1721,57 +1932,56 @@
         <div class="space-y-3">
 
             @foreach ([
-                [
-                    'title' => 'Protect your API secret',
-                    'desc' => 'Keep X-API-Secret exclusively on your server.',
-                    'icon' => 'heroicon-o-shield-check',
-                ],
-                [
-                    'title' => 'Do not commit credentials',
-                    'desc' => 'Never store API credentials in public Git repositories.',
-                    'icon' => 'heroicon-o-code-bracket-square',
-                ],
-                [
-                    'title' => 'Avoid client-side exposure',
-                    'desc' => 'Never expose your API secret in browser JavaScript or mobile applications.',
-                    'icon' => 'heroicon-o-eye-slash',
-                ],
-                [
-                    'title' => 'Rotate compromised credentials',
-                    'desc' => 'Generate new credentials immediately if a secret is exposed.',
-                    'icon' => 'heroicon-o-arrow-path',
-                ],
-                [
-                    'title' => 'Use HTTPS',
-                    'desc' => 'Always communicate with the Jaloot API over HTTPS.',
-                    'icon' => 'heroicon-o-lock-closed',
-                ],
+            [
+            'title' => 'Protect your API secret',
+            'desc' => 'Keep X-API-Secret exclusively on your server.',
+            'icon' => 'heroicon-o-shield-check',
+            ],
+            [
+            'title' => 'Do not commit credentials',
+            'desc' => 'Never store API credentials in public Git repositories.',
+            'icon' => 'heroicon-o-code-bracket-square',
+            ],
+            [
+            'title' => 'Avoid client-side exposure',
+            'desc' => 'Never expose your API secret in browser JavaScript or mobile applications.',
+            'icon' => 'heroicon-o-eye-slash',
+            ],
+            [
+            'title' => 'Rotate compromised credentials',
+            'desc' => 'Generate new credentials immediately if a secret is exposed.',
+            'icon' => 'heroicon-o-arrow-path',
+            ],
+            [
+            'title' => 'Use HTTPS',
+            'desc' => 'Always communicate with the Jaloot API over HTTPS.',
+            'icon' => 'heroicon-o-lock-closed',
+            ],
             ] as $item)
 
-                <div class="flex items-start gap-3 rounded-xl border border-gray-200 bg-white p-4 dark:border-white/10 dark:bg-white/[0.02]">
+            <div class="flex items-start gap-3 rounded-xl border border-gray-200 bg-white p-4 dark:border-white/10 dark:bg-white/[0.02]">
 
-                    <div class="flex size-9 shrink-0 items-center justify-center rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-500/10 dark:text-primary-400">
+                <div class="flex size-9 shrink-0 items-center justify-center rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-500/10 dark:text-primary-400">
 
-                        <x-filament::icon
-                            :icon="$item['icon']"
-                            class="size-5"
-                        />
-
-                    </div>
-
-                    <div>
-
-                        <div class="text-sm font-semibold text-gray-950 dark:text-white">
-                            {{ $item['title'] }}
-                        </div>
-
-                        <p class="mt-1 text-sm leading-5 text-gray-600 dark:text-gray-400">
-                            {{ $item['desc'] }}
-                        </p>
-
-                    </div>
+                    <x-filament::icon
+                        :icon="$item['icon']"
+                        class="size-5" />
 
                 </div>
+
+                <div>
+
+                    <div class="text-sm font-semibold text-gray-950 dark:text-white">
+                        {{ $item['title'] }}
+                    </div>
+
+                    <p class="mt-1 text-sm leading-5 text-gray-600 dark:text-gray-400">
+                        {{ $item['desc'] }}
+                    </p>
+
+                </div>
+
+            </div>
 
             @endforeach
 
@@ -1799,8 +2009,7 @@
                     <div class="flex size-9 items-center justify-center rounded-lg bg-primary-100 text-primary-600 dark:bg-primary-500/10 dark:text-primary-400">
                         <x-filament::icon
                             icon="heroicon-o-rocket-launch"
-                            class="size-5"
-                        />
+                            class="size-5" />
                     </div>
 
                     <div>
@@ -1825,8 +2034,7 @@
                     <div class="flex size-9 items-center justify-center rounded-lg bg-gray-100 text-gray-600 dark:bg-white/5 dark:text-gray-400">
                         <x-filament::icon
                             icon="heroicon-o-list-bullet"
-                            class="size-5"
-                        />
+                            class="size-5" />
                     </div>
 
                     <div>
@@ -1836,6 +2044,31 @@
 
                         <code class="mt-1 block text-xs text-gray-600 dark:text-gray-400">
                             GET /v2/chapters
+                        </code>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="rounded-xl border border-primary-200 bg-primary-50/50 p-5 dark:border-primary-500/20 dark:bg-primary-500/5">
+
+                <div class="flex items-center gap-3">
+
+                    <div class="flex size-9 items-center justify-center rounded-lg bg-primary-100 text-primary-600 dark:bg-primary-500/10 dark:text-primary-400">
+                        <x-filament::icon
+                            icon="heroicon-o-sparkles"
+                            class="size-5" />
+                    </div>
+
+                    <div>
+                        <div class="text-sm font-semibold text-gray-950 dark:text-white">
+                            Get a random verse
+                        </div>
+
+                        <code class="mt-1 block text-xs text-primary-700 dark:text-primary-400">
+                            GET /v2/verse/random
                         </code>
                     </div>
 
