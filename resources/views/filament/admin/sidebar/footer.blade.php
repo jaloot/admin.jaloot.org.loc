@@ -17,7 +17,7 @@
     </div>
 
     <div class="text-[11px]">
-        Free to use - &copy; 2019 - {{date('Y')}} jaloot.org
+        Free to use - &copy; 2019 - {{date('Y')}} <a href="https://www.jaloot.org" target="_blank" class="text-primary-600 hover:text-primary-700">Jaloot.org</a>
     </div>
     <div class="text-[10px] mt-4 text-primary-600">Version : {{config('app.api_version')}}</div>
 </div>
