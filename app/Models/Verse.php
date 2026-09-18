@@ -13,6 +13,7 @@ class Verse extends Model
         'number',
         'text',
         'text_simple',
+        'transliteration',
         'line',
         'juz',
         'page',

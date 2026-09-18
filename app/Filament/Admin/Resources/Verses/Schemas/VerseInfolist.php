@@ -28,6 +28,8 @@ class VerseInfolist
                     ->columnSpanFull(),
                 TextEntry::make('text_simple')
                     ->columnSpanFull(),
+                TextEntry::make('transliteration')
+                    ->columnSpanFull(),
                 TextEntry::make('line')
                     ->numeric()
                     ->placeholder('-'),

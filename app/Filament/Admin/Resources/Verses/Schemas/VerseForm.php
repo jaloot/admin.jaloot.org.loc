@@ -28,6 +28,8 @@ class VerseForm
                 Textarea::make('text_simple')
                     ->required()
                     ->columnSpanFull(),
+                Textarea::make('transliteration')
+                    ->columnSpanFull(),
                 TextInput::make('line')
                     ->numeric(),
                 TextInput::make('juz')

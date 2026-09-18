@@ -9,7 +9,7 @@ class SimpleVerseSeeder extends Seeder
 {
     public function run(): void
     {
-        $path = database_path('data/simple-verses-ar.txt');
+        $path = database_path('data/transliteration.txt');
 
         if (! file_exists($path)) {
             $this->command->error("File not found: {$path}");
@@ -24,7 +24,7 @@ class SimpleVerseSeeder extends Seeder
         foreach ($lines as $index => $text) {
             Verse::where('id', $index + 1)
                 ->update([
-                    'text_simple' => trim($text),
+                    'transliteration' => trim($text),
                 ]);
         }
 
