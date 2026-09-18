@@ -1461,33 +1461,6 @@
   ]
 }</code></pre>
 
-            <button
-                type="button"
-                x-on:click="
-                    const text = $el.previousElementSibling.innerText;
-                    if (navigator.clipboard) {
-                        navigator.clipboard.writeText(text).then(() => {
-                            copied = true;
-                            setTimeout(() => copied = false, 1500);
-                        });
-                    }
-                "
-                class="absolute right-3 top-3 inline-flex items-center gap-1.5 rounded-lg bg-white/10 px-2.5 py-1.5 text-xs font-medium text-gray-200 transition hover:bg-white/20">
-                <x-filament::icon
-                    icon="heroicon-o-clipboard-document"
-                    class="size-4" />
-
-                <span x-show="!copied">
-                    Copy
-                </span>
-
-                <span
-                    x-show="copied"
-                    x-cloak>
-                    Copied!
-                </span>
-            </button>
-
         </div>
     </x-filament::section>
 
@@ -1509,10 +1482,12 @@
             x-data="{ copied: false }"
             class="relative">
 
-            <pre class="overflow-x-auto rounded-xl bg-gray-950 p-5 text-xs leading-relaxed text-gray-100"><code>{
+            <pre class="overflow-x-auto rounded-xl bg-gray-950 p-5 text-xs leading-relaxed text-gray-100">
+                <code>
+{
   "request": {
     "status": 200,
-    "response_time": "137.02ms",
+    "response_time": "156.86ms",
     "cache": {
       "hit": false,
       "key": null,
@@ -1521,70 +1496,36 @@
     }
   },
   "lang": "العربية",
-  "chapter": {
-    "number": 77,
-    "slug": "al-mursalaat",
-    "name": "المرسلات"
-  },
-  "verse": 3,
-  "text": "وَالنَّٰشِرَٰتِ نَشْرا ࣰ‏",
-  "text_simple": "والناشرات نشرا",
   "recitation": "ورش",
+  "chapter": {
+    "number": 11,
+    "slug": "hud",
+    "name": "هود"
+  },
+  "verse": {
+    "number": 49,
+    "text": "تِلْكَ مِنَ اَنۢبَآءِ اِ۬لْغَيْبِ نُوحِيهَآ إِلَيْكَۖ مَا كُنتَ تَعْلَمُهَآ أَنتَ وَلَا قَوْمُكَ مِن قَبْلِ هَٰذَاۖ فَاصْبِرِۖ اِنَّ اَ۬لْعَٰقِبَةَ لِلْمُتَّقِينَۖ",
+    "text_simple": "تلك من أنباء الغيب نوحيها إليك ما كنت تعلمها أنت ولا قومك من قبل هذا فاصبر إن العاقبة للمتقين",
+    "juz": 12,
+    "page": 227
+  },
   "tafsirs": [
     {
       "title": "التفسير الميسر",
       "author": "نخبة من العلماء",
       "book_name": "التفسير الميسر",
-      "text": "أقسم الله تعالى بالرياح حين تهب متتابعة يقفو بعضها بعضًا، وبالرياح الشديدة الهبوب المهلكة، وبالملائكة الموكلين بالسحب يسوقونها حيث شاء الله، وبالملائكة التي تنزل من عند الله بما يفرق بين الحق والباطل والحلال والحرام، وبالملائكة التي تتلقى الوحي من عند الله وتنزل به على أنبيائه؛ إعذارًا من الله إلى خلقه وإنذارًا منه إليهم؛ لئلا يكون لهم حجة. إن الذي توعدون به مِن أمر يوم القيامة وما فيه من حساب وجزاء لنازلٌ بكم لا محالة."
+      "text": "تلك القصة التي قصصناها عليك -أيها الرسول- عن نوح وقومه هي من أخبار الغيب السالفة، نوحيها إليك، ما كنت تعلمها أنت ولا قومك مِن قبل هذا البيان، فاصبر على تكذيب قومك وإيذائهم لك، كما صبر الأنبياء من قبل، إن العاقبة الطيبة في الدنيا والآخرة للمتقين الذين يخشون الله."
     },
     {
       "title": "تفسير الجلالين",
       "author": "جلال الدين المحلي و السيوطي",
       "book_name": "تفسير الجلالين",
-      "text": "«والناشرات نشرا» الرياح تنشر المطر."
-    },
-    {
-      "title": "تفسير السعدي",
-      "author": "عبد الرحمن بن ناصر بن عبد الله السعدي التميمي مفسر",
-      "book_name": "تيسير الكريم الرحمن في تفسير كلام المنان",
-      "text": "وَالنَّاشِرَاتِ نَشْرًا يحتمل أنها الملائكة، تنشر ما دبرت على نشره، أو أنها السحاب التي ينشر بها الله الأرض، فيحييها بعد موتها."
-    },
-    {
-      "title": "تفسير ابن كثير",
-      "author": "عماد الدين أبي الفداء إسماعيل بن كثير القرشي",
-      "book_name": "تفسير القرآن العظيم",
-      "text": "هي الرياح التي تنشر السحاب في آفاق السماء كما يشاء الرب عز وجل."
+      "text": "«تلك» أي هذه الآيات المتضمنة قصة نوح «من أنباء الغيب» أخبار ما غاب عنك «نوحيها إليك» يا محمد «ما كنت تعلمها أنت ولا قومك من قبل هذا» القرآن «فاصبر» على التبليغ وأذى قومك كما صبر نوح «إن العاقبة» المحمودة «للمتقين»."
     }
   ]
-}</code></pre>
-
-            <button
-                type="button"
-                x-on:click="
-                    const text = $el.previousElementSibling.innerText;
-                    if (navigator.clipboard) {
-                        navigator.clipboard.writeText(text).then(() => {
-                            copied = true;
-                            setTimeout(() => copied = false, 1500);
-                        });
-                    }
-                "
-                class="absolute right-3 top-3 inline-flex items-center gap-1.5 rounded-lg bg-white/10 px-2.5 py-1.5 text-xs font-medium text-gray-200 transition hover:bg-white/20">
-                <x-filament::icon
-                    icon="heroicon-o-clipboard-document"
-                    class="size-4" />
-
-                <span x-show="!copied">
-                    Copy
-                </span>
-
-                <span
-                    x-show="copied"
-                    x-cloak>
-                    Copied!
-                </span>
-            </button>
-
+}
+                </code>
+            </pre>
         </div>
     </x-filament::section>
 
@@ -1817,7 +1758,7 @@
         </x-slot>
 
         <div class="space-y-5">
-            
+
             {{-- By number --}}
             <div>
 
@@ -1834,9 +1775,9 @@
                 </div>
 
                 <pre class="overflow-x-auto rounded-xl bg-gray-950 p-5 text-xs leading-relaxed text-gray-100"><code>curl "{{ $baseUrl }}/v2/chapter/1" \
-  -H "X-API-Key: YOUR_API_KEY" \
-  -H "X-API-Secret: YOUR_API_SECRET" \
-  -H "Accept: application/json"</code></pre>
+    -H "X-API-Key: YOUR_API_KEY" \
+    -H "X-API-Secret: YOUR_API_SECRET" \
+    -H "Accept: application/json"</code></pre>
 
             </div>
 
@@ -1883,9 +1824,9 @@
 
                 </div>
                 <pre class="overflow-x-auto rounded-xl bg-gray-950 p-5 text-xs leading-relaxed text-gray-100"><code>curl "{{ $baseUrl }}/v2/verse/random" \
- -H "X-API-Key: YOUR_API_KEY" \
- -H "X-API-Secret: YOUR_API_SECRET" \
- -H "Accept: application/json"</code></pre>
+    -H "X-API-Key: YOUR_API_KEY" \
+    -H "X-API-Secret: YOUR_API_SECRET" \
+    -H "Accept: application/json"</code></pre>
             </div>
             {{-- All chapters --}}
             <div>
@@ -1902,18 +1843,16 @@
 
                 </div>
 
-                <pre class="overflow-x-auto rounded-xl bg-gray-950 p-5 text-xs leading-relaxed text-gray-100">
-<code>
-curl "{{ $baseUrl }}/v2/chapters" \
+                <pre class="overflow-x-auto rounded-xl bg-gray-950 p-5 text-xs leading-relaxed text-gray-100"><code>curl "{{ $baseUrl }}/v2/chapters" \
     -H "X-API-Key: YOUR_API_KEY" \
     -H "X-API-Secret: YOUR_API_SECRET" \
-    -H "Accept: application/json"
-</code>
-</pre>
+    -H "Accept: application/json"</code></pre>
 
             </div>
-            
-            <p class="mb-3 text-xs text-gray-500 dark:text-gray-400">The <code>lang</code> parameter is optional. Arabic is used by default. <code>?lang=ar|en|es|fr</code></p>
+
+            <x-filament::badge color="success">
+                        The <code>lang</code> parameter is optional. Arabic is used by default. <code>?lang=ar|en|es|fr</code>
+            </x-filament::badge>
         </div>
     </x-filament::section>
 
