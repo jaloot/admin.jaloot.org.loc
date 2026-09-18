@@ -51,16 +51,22 @@ class VersesController extends Controller
 
         return response()->json([
             'lang' => $language->name,
+            'recitation' => $verse->Transmission?->name,
+
             'chapter' => [
                 'number' => $chapter?->number,
                 'slug' => $chapter?->slug,
                 'name' => $chapterName?->{$language->code} ?? $chapterName?->ar,
             ],
 
-            'verse' => $verse->number,
-            'text' => $verse->text,
-            'text_simple' => $verse->text_simple,
-            'recitation' => $verse->Transmission?->name,
+            'verse' => [
+                'number' => $verse->number,
+                'text' => $verse->text,
+                'text_simple' => $verse->text_simple,
+                'juz' => $verse->juz,
+                'page' => $verse->page,
+            ],
+
             'tafsirs' => $tafsirs,
         ]);
     }
