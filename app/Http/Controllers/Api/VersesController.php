@@ -63,6 +63,7 @@ class VersesController extends Controller
                 'number' => $verse->number,
                 'text' => $verse->text,
                 'text_simple' => $verse->text_simple,
+                'transliteration' => $verse->transliteration,
                 'juz' => $verse->juz,
                 'page' => $verse->page,
             ],
