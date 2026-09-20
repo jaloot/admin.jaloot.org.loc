@@ -9,7 +9,7 @@ use App\Models\Basmala;
 class ChapterResource extends JsonResource
 {
     private const DEFAULT_LANG = 'ar';
-    private const ALLOWED_LANGS = ['ar', 'en', 'fr' , 'es' , 'nl'];
+    private const ALLOWED_LANGS = ['ar', 'en', 'fr' , 'es'];
 
     public function toArray(Request $request): array
     {
