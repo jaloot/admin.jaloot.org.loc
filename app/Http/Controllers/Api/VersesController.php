@@ -57,6 +57,7 @@ class VersesController extends Controller
                 'number' => $chapter?->number,
                 'slug' => $chapter?->slug,
                 'name' => $chapterName?->{$language->code} ?? $chapterName?->ar,
+                'name_complex' => $chapter?->complex,
             ],
 
             'verse' => [
