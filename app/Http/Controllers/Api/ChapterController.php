@@ -13,23 +13,47 @@ use Illuminate\Support\Facades\Cache;
 class ChapterController extends Controller
 {
     private const DEFAULT_LANG = 'ar';
+    private const TOTAL_CHAPTERS = 114;
+    private const LIMIT_CHAPTERS = 3;
 
     public function index(Request $request): JsonResponse
     {
         $language = $this->resolveLanguage($request);
 
-        $cacheKey = "chapters.quran.{$language->code}";
+        $start = $request->integer('start', 1);
+        $limit = $request->integer('limit', self::TOTAL_CHAPTERS);
+
+        $numbers = $this->numbers($start, $limit);
+
+        $cacheKey = sprintf('chapters.quran.%1$s-[%2$s,%3$s]', $language->code, $start ?? '-', $limit ?? 'all');
+
         $cacheStart = microtime(true);
         $cacheHit = Cache::has($cacheKey);
 
-        $data = Cache::rememberForever($cacheKey, function () use ($request) {
-            $chapters = Chapter::with([
+        $data = Cache::rememberForever($cacheKey, function () use ($request, $numbers) {
+
+            $query = Chapter::with([
                 'names',
                 'revelationPlace.translations.language',
                 'prostrations',
-            ])
-                ->orderBy('number')
-                ->get();
+            ]);
+
+            if ($numbers === null) {
+                $chapters = $query
+                    ->orderBy('number')
+                    ->get();
+            } else {
+                $chapters = $query
+                    ->whereIn('number', $numbers)
+                    ->get()
+                    ->sortBy(
+                        fn($chapter) => array_search(
+                            $chapter->number,
+                            $numbers
+                        )
+                    )
+                    ->values();
+            }
 
             return ChapterResource::collection($chapters)->resolve($request);
         });
@@ -129,6 +153,32 @@ class ChapterController extends Controller
         $request->attributes->set('cache_store', config('cache.default'));
         $request->attributes->set('cache_key', $cacheKey);
         $request->attributes->set('cache_hit', $cacheHit);
-        $request->attributes->set('cache_time', round((microtime(true) - $cacheStart) * 1000, 2) . 'ms');
+        $request->attributes->set(
+            'cache_time',
+            round((microtime(true) - $cacheStart) * 1000, 2) . 'ms'
+        );
+    }
+
+    private function numbers(?int $start, ?int $limit): ?array
+    {
+        if ($start === null) {
+            return null;
+        }
+
+        if ($start < 1 || $start > self::TOTAL_CHAPTERS) {
+            return null;
+        }
+
+        $limit = $limit ?? self::LIMIT_CHAPTERS;
+
+        if ($limit < 1) {
+            return null;
+        }
+
+        return collect(range(0, $limit - 1))
+            ->map(
+                fn($i) => (($start - 1 + $i) % self::TOTAL_CHAPTERS) + 1
+            )
+            ->toArray();
     }
 }
