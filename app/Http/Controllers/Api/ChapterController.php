@@ -85,42 +85,102 @@ class ChapterController extends Controller
         }
 
         $language = $this->resolveLanguage($request);
-
         $textSimple = $request->boolean('text_simple');
 
-        $cacheKey = sprintf(
-            'chapter.%s.%s.S%s',
-            $chapter->slug,
-            $language->code,
-            $textSimple ? 'T' : 'F'
-        );
+        $pagedRaw = $request->query('paged');
+        $paged = null;
 
-        $cacheStart = microtime(true);
-        $cacheHit = Cache::has($cacheKey);
+        if ($pagedRaw !== null) {
+            if (!ctype_digit((string) $pagedRaw)) {
+                return response()->json([
+                    'status' => 422,
+                    'error' => 'invalid_parameter',
+                    'message' => 'The paged parameter must be a positive integer.',
+                    'documentation_url' => config('app.doc_url'),
+                ], 422);
+            }
 
-        $data = Cache::rememberForever($cacheKey, function () use ($chapter, $request) {
-            $chapter->load([
-                'names',
-                'revelationPlace',
-                'verses',
-            ]);
+            $paged = (int) $pagedRaw;
+        }
 
-            $request->attributes->set('include_verses', true);
+        $metaCacheKey = sprintf('chapter.meta.%s.%s', $chapter->slug, $language->code);
+
+        $meta = Cache::rememberForever($metaCacheKey, function () use ($chapter, $request) {
+            $chapter->load(['names', 'revelationPlace']);
+
+            $request->attributes->set('include_verses', false);
             $request->attributes->set('show_text_basmala', true);
 
             return (new ChapterResource($chapter))->resolve($request);
         });
 
-        $this->setCacheMetadata(
-            $request,
-            $cacheKey,
-            $cacheHit,
-            $cacheStart
+        if ($paged !== null) {
+            $pagesStart = $meta['pages']['start'] ?? null;
+            $pagesEnd = $meta['pages']['end'] ?? null;
+
+            if ($pagesStart !== null && ($paged < $pagesStart || $paged > $pagesEnd)) {
+                return response()->json([
+                    'status' => 422,
+                    'error' => 'invalid_parameter',
+                    'message' => sprintf(
+                        'The paged parameter must be between %d and %d for this chapter.',
+                        $pagesStart,
+                        $pagesEnd
+                    ),
+                    'documentation_url' => config('app.doc_url'),
+                ], 422);
+            }
+        }
+
+        $versesCacheKey = sprintf(
+            'chapter.%s.%s.S%s.%s',
+            $chapter->slug,
+            $language->code,
+            $textSimple ? 'T' : 'F',
+            $paged !== null ? "P{$paged}" : 'all'
         );
+
+        $versesCacheStart = microtime(true);
+        $versesCacheHit = Cache::has($versesCacheKey);
+
+        $verses = Cache::rememberForever($versesCacheKey, function () use ($chapter, $request, $paged) {
+            $chapter->load([
+                'verses' => function ($query) use ($paged) {
+                    if ($paged !== null) {
+                        $query->where('page', $paged);
+                    }
+
+                    $query->orderBy('number');
+                },
+            ]);
+
+            $request->attributes->set('include_verses', true);
+            // Basmala uniquement affichée sur la première page de la sourate
+            $request->attributes->set(
+                'show_text_basmala',
+                $paged === null || $paged === ($chapter->pages['start'] ?? null)
+            );
+
+            $resolved = (new ChapterResource($chapter))->resolve($request);
+
+            return $resolved['verses'] ?? [];
+        });
+
+        $this->setCacheMetadata($request, $versesCacheKey, $versesCacheHit, $versesCacheStart);
 
         return response()->json([
             'language' => $this->languageData($language),
-            ...$data,
+            ...$meta,
+            'verses' => $verses,
+            'pagination' => $paged !== null ? [
+                'page' => $paged,
+                'start' => $meta['pages']['start'] ?? null,
+                'end' => $meta['pages']['end'] ?? null,
+                'has_previous' => $paged > ($meta['pages']['start'] ?? $paged),
+                'has_next' => $paged < ($meta['pages']['end'] ?? $paged),
+                'previous_page' => $paged > ($meta['pages']['start'] ?? $paged) ? $paged - 1 : null,
+                'next_page' => $paged < ($meta['pages']['end'] ?? $paged) ? $paged + 1 : null,
+            ] : null,
         ]);
     }
 
