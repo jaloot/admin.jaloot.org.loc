@@ -13,6 +13,7 @@ class ProstrationResource extends JsonResource
             'verse_number' => $this->verse?->number,
             'recommended' => $this->recommended,
             'obligatory' => $this->obligatory,
+            'page' => $this->verse?->page,
         ];
     }
 }
