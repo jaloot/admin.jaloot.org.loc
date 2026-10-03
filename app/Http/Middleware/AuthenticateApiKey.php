@@ -9,7 +9,8 @@ use Symfony\Component\HttpFoundation\Response;
 
 class AuthenticateApiKey
 {
-    public function handle(Request $request,Closure $next): Response {
+    public function handle(Request $request, Closure $next): Response
+    {
         $apiKey = $request->header('X-API-Key');
         $apiSecret = $request->header('X-API-Secret');
 
@@ -42,7 +43,6 @@ class AuthenticateApiKey
             ], 401);
         }
 
-        // Attach API key to current request
         $request->attributes->set('api_key', $key);
 
         return $next($request);

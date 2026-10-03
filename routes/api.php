@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\{ChapterController , VersesController};
+use App\Http\Controllers\Api\{ChapterController, VersesController, NewsletterController};
 use App\Models\Chapter;
 
 Route::get('/user', function (Request $request) {
@@ -57,4 +57,9 @@ Route::domain(config('app.api_quran_jaloot'))
 
             Route::get('/{chapter?}', [ChapterController::class, 'show']);
         });
+
+        Route::prefix('newsletter')->middleware('admin.api.key')->group(function () {
+            Route::post('subscribe', [NewsletterController::class, 'subscribe']);
+        });
+
     });

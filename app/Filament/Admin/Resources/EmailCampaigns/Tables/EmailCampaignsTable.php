@@ -6,6 +6,7 @@ use App\Filament\Admin\Resources\EmailDeliveries\EmailDeliveryResource;
 use App\Jobs\SendCampaignEmail;
 use App\Models\EmailCampaign;
 use App\Models\EmailDelivery;
+use App\Models\NewsletterSubscriber;
 use App\Models\User;
 use Filament\Actions\Action;
 use Filament\Actions\{EditAction, DeleteAction};
@@ -31,6 +32,7 @@ class EmailCampaignsTable
                         'administrators' => 'Administrators',
                         'publishers' => 'Publishers',
                         'active_api_users' => 'Active API Users',
+                        'newsletter_subscribers' => 'Newsletter Subscribers',
                         default => ucfirst($state),
                     }),
 
@@ -84,6 +86,61 @@ class EmailCampaignsTable
                     )
                     ->action(function (EmailCampaign $record): void {
 
+                        if ($record->recipient_type === 'newsletter_subscribers') {
+
+                            $query = NewsletterSubscriber::query()
+                                ->where('is_subscribed', true)
+                                ->whereNotNull('email');
+
+                            if ($record->language_id) {
+                                $query->where('language_id', $record->language_id);
+                            }
+
+                            $total = $query->count();
+
+                            if ($total === 0) {
+                                throw new \RuntimeException(
+                                    'No newsletter subscribers were found for this campaign.'
+                                );
+                            }
+
+                            $record->update([
+                                'status' => 'queued',
+                                'total_recipients' => $total,
+                                'sent_count' => 0,
+                                'pending_count' => $total,
+                                'failed_count' => 0,
+                                'queued_at' => now(),
+                                'started_at' => null,
+                                'completed_at' => null,
+                            ]);
+
+                            $query
+                                ->select([
+                                    'id',
+                                    'email',
+                                ])
+                                ->chunkById(100, function ($subscribers) use ($record): void {
+
+                                    foreach ($subscribers as $subscriber) {
+
+                                        $delivery = EmailDelivery::create([
+                                            'email_campaign_id' => $record->id,
+                                            'user_id' => null,
+                                            'newsletter_subscriber_id' => $subscriber->id,
+                                            'email' => $subscriber->email,
+                                            'status' => 'pending',
+                                            'attempts' => 0,
+                                        ]);
+
+                                        SendCampaignEmail::dispatch($delivery->id)
+                                            ->onQueue('emails');
+                                    }
+                                });
+
+                            return;
+                        }
+
                         $query = match ($record->recipient_type) {
 
                             'administrators' => User::query()
@@ -97,7 +154,6 @@ class EmailCampaignsTable
                                     $query->where('name', 'publisher');
                                 })
                                 ->whereNotNull('email'),
-
 
                             'active_api_users' => User::query()
                                 ->where('is_active', true)
@@ -138,6 +194,7 @@ class EmailCampaignsTable
                                     $delivery = EmailDelivery::create([
                                         'email_campaign_id' => $record->id,
                                         'user_id' => $user->id,
+                                        'newsletter_subscriber_id' => null,
                                         'email' => $user->email,
                                         'status' => 'pending',
                                         'attempts' => 0,

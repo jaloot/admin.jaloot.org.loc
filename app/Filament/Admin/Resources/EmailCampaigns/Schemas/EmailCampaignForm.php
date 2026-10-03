@@ -2,6 +2,7 @@
 
 namespace App\Filament\Admin\Resources\EmailCampaigns\Schemas;
 
+use App\Models\Language;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -30,9 +31,22 @@ class EmailCampaignForm
                                 'administrators' => 'Administrators',
                                 'publishers' => 'Publishers',
                                 'active_api_users' => 'Active API Users',
+                                'newsletter_subscribers' => 'Newsletter Subscribers',
                             ])
                             ->default('all')
-                            ->required(),
+                            ->required()
+                            ->live(),
+
+                        Select::make('language_id')
+                            ->label('Language')
+                            ->options(
+                                fn() => Language::query()
+                                    ->orderBy('name')
+                                    ->pluck('name', 'id')
+                                    ->toArray()
+                            )
+                            ->required()
+                            ->visible(fn($get) => $get('recipient_type') === 'newsletter_subscribers'),
                     ])
                     ->columns(2),
 

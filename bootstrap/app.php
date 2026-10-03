@@ -29,6 +29,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'api.key' => \App\Http\Middleware\AuthenticateApiKey::class,
             'api.log' => \App\Http\Middleware\LogApiRequest::class,
+            'admin.api.key' => \App\Http\Middleware\AdminApiKey::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use App\Models\Language;
 
 class EmailCampaign extends Model
 {
@@ -22,6 +23,7 @@ class EmailCampaign extends Model
         'started_at',
         'completed_at',
         'created_by',
+        'language_id',
     ];
 
     protected function casts(): array
@@ -41,6 +43,11 @@ class EmailCampaign extends Model
     public function creator(): BelongsTo
     {
         return $this->belongsTo(User::class, 'created_by');
+    }
+
+    public function language(): BelongsTo
+    {
+        return $this->belongsTo(Language::class);
     }
 
     public function refreshStatistics(): void
