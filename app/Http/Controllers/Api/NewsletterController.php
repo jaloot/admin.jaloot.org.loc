@@ -25,12 +25,17 @@ class NewsletterController extends Controller
                 'max:255',
             ],
 
-            'language_id' => [
+            'locale' => [
                 'required',
-                'integer',
-                Rule::exists('languages', 'id'),
+                'string',
+                Rule::exists('languages', 'code'),
             ],
         ]);
+
+        $language = \App\Models\Language::where(
+            'code',
+            $validated['locale']
+        )->firstOrFail();
 
         $subscriber = NewsletterSubscriber::updateOrCreate(
             [
@@ -38,7 +43,7 @@ class NewsletterController extends Controller
             ],
             [
                 'name' => $validated['name'] ?? null,
-                'language_id' => $validated['language_id'],
+                'language_id' => $language->id,
                 'is_subscribed' => true,
                 'subscribed_at' => now(),
                 'unsubscribed_at' => null,
