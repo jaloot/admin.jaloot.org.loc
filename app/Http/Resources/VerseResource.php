@@ -43,7 +43,7 @@ class VerseResource extends JsonResource
                 $this->transliteration
             ),
             'translations' => $this->when(
-                $lang !== self::DEFAULT_LANG,
+                $request->boolean('tafsirs'),
                 $translations
             ),
             'line' => $this->line,

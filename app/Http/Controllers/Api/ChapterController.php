@@ -86,6 +86,7 @@ class ChapterController extends Controller
 
         $language = $this->resolveLanguage($request);
         $textSimple = $request->boolean('text_simple');
+        $tafsirs = $request->boolean('tafsirs');
 
         $pagedRaw = $request->query('paged');
         $paged = null;
@@ -133,11 +134,12 @@ class ChapterController extends Controller
         }
 
         $versesCacheKey = sprintf(
-            'chapter.%s.%s.S%s.%s',
+            'chapter.%s.%s.S%s.%s%s',
             $chapter->slug,
             $language->code,
             $textSimple ? 'T' : 'F',
-            $paged !== null ? "P{$paged}" : 'all'
+            $paged !== null ? "P{$paged}" : 'all',
+            $tafsirs ? '+Tfs' : '-Tfs'
         );
 
         $versesCacheStart = microtime(true);
